@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:apparche/screen//drawer.dart';
 
-class Home extends StatefulWidget {
+class Homek extends StatefulWidget {
   @override
-  _HomeState createState() => _HomeState();
+  _HomekState createState() => _HomekState();
 }
 
-class _HomeState extends State<Home> {
+
+
+class _HomekState extends State<Homek> {
   @override
   Widget build(BuildContext context) {
    Color primarycolor = Color.fromRGBO(255, 82, 48, 1);
