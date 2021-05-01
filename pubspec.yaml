@@ -38,6 +38,7 @@ dependencies:
   state_persistence: ^0.1.0
   json_serializable: ^4.1.1
   flutter_statusbar_manager: ^2.0.0
+  flutter_cached_pdfview: ^0.4.0-nullsafety
 
 dev_dependencies:
   flutter_test:
@@ -76,6 +77,7 @@ flutter:
     - asset/img/Facebook.png
     - asset/img/undraw_online_articles_79ff.png
     - asset/img/loading.png
+    - asset/pdf/Historique.pdf
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
   # For details regarding adding assets from package dependencies, see

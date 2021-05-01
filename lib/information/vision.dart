@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_cached_pdfview/flutter_cached_pdfview.dart';
 
 class Vision extends StatefulWidget {
   @override
@@ -16,40 +17,23 @@ class _VisionState extends State<Vision> {
 
       ),
          body: Container(
-           child: ListView(
-             
-             scrollDirection: Axis.vertical,
-             children: [
-                     SizedBox(height: 12,),
-                   Text( "Visision et Historique",textAlign: TextAlign.center ,style: TextStyle(decoration:TextDecoration.underline,fontWeight: FontWeight.bold,fontSize: 22, fontStyle: FontStyle.normal, color: Colors.red),),
-                   SizedBox(height: 12,),
-                   Text("lorem ipsum blllaljdjjdja fhfh  dhdjcnc fh llal",textDirection: TextDirection.ltr ,textAlign: TextAlign.center,style: TextStyle(fontWeight: FontWeight.normal,fontSize: 18, fontStyle: FontStyle.normal, color: Colors.black)),
-                  Text("lorem ipsum blllaljdjjdja fhfh  dhdjcnc fh llal",textDirection: TextDirection.rtl ,textAlign: TextAlign.center,style: TextStyle(fontWeight: FontWeight.normal,fontSize: 18, fontStyle: FontStyle.normal, color: Colors.black)),
-                  Text("lorem ipsum blllaljdjjdja fhfh  dhdjcnc fh llal",textDirection: TextDirection.rtl ,textAlign: TextAlign.center,style: TextStyle(fontWeight: FontWeight.normal,fontSize: 18, fontStyle: FontStyle.normal, color: Colors.black)),
-                   Text("lorem ipsum blllaljdjjdja fhfh  dhdjcnc fh llal",textDirection: TextDirection.rtl ,textAlign: TextAlign.center,style: TextStyle(fontWeight: FontWeight.normal,fontSize: 18, fontStyle: FontStyle.normal, color: Colors.black)),
-                   Text("lorem ipsum blllaljdjjdja fhfh  dhdjcnc fh llal",textDirection: TextDirection.rtl ,textAlign: TextAlign.center,style: TextStyle(fontWeight: FontWeight.normal,fontSize: 18, fontStyle: FontStyle.normal, color: Colors.black)),
-                   Text("lorem ipsum blllaljdjjdja fhfh  dhdjcnc fh llal",textDirection: TextDirection.rtl ,textAlign: TextAlign.center,style: TextStyle(fontWeight: FontWeight.normal,fontSize: 18, fontStyle: FontStyle.normal, color: Colors.black)),
-                   Text("lorem ipsum blllaljdjjdja fhfh  dhdjcnc fh llal",textDirection: TextDirection.rtl ,textAlign: TextAlign.center,style: TextStyle(fontWeight: FontWeight.normal,fontSize: 18, fontStyle: FontStyle.normal, color: Colors.black)),
-                   Text("lorem ipsum blllaljdjjdja fhfh  dhdjcnc fh llal",textDirection: TextDirection.rtl ,textAlign: TextAlign.center,style: TextStyle(fontWeight: FontWeight.normal,fontSize: 18, fontStyle: FontStyle.normal, color: Colors.black)),
-                   Text("lorem ipsum blllaljdjjdja fhfh  dhdjcnc fh llal",textDirection: TextDirection.rtl ,textAlign: TextAlign.center,style: TextStyle(fontWeight: FontWeight.normal,fontSize: 18, fontStyle: FontStyle.normal, color: Colors.black)),
-                   Text("lorem ipsum blllaljdjjdja fhfh  dhdjcnc fh llal",textDirection: TextDirection.rtl ,textAlign: TextAlign.center,style: TextStyle(fontWeight: FontWeight.normal,fontSize: 18, fontStyle: FontStyle.normal, color: Colors.black)),
-
-                  Text("lorem ipsum blllaljdjjdja fhfh  dhdjcnc fh llal",textDirection: TextDirection.rtl ,textAlign: TextAlign.center,style: TextStyle(fontWeight: FontWeight.normal,fontSize: 18, fontStyle: FontStyle.normal, color: Colors.black)),
-                  Text("lorem ipsum blllaljdjjdja fhfh  dhdjcnc fh llal",textDirection: TextDirection.rtl ,textAlign: TextAlign.center,style: TextStyle(fontWeight: FontWeight.normal,fontSize: 18, fontStyle: FontStyle.normal, color: Colors.black)),
-                  Text("lorem ipsum blllaljdjjdja fhfh  dhdjcnc fh llal",textDirection: TextDirection.rtl ,textAlign: TextAlign.center,style: TextStyle(fontWeight: FontWeight.normal,fontSize: 18, fontStyle: FontStyle.normal, color: Colors.black)),
-                  Text("lorem ipsum blllaljdjjdja fhfh  dhdjcnc fh llal",textDirection: TextDirection.rtl ,textAlign: TextAlign.center,style: TextStyle(fontWeight: FontWeight.normal,fontSize: 18, fontStyle: FontStyle.normal, color: Colors.black)),
-                  Text("lorem ipsum blllaljdjjdja fhfh  dhdjcnc fh llal",textDirection: TextDirection.rtl ,textAlign: TextAlign.center,style: TextStyle(fontWeight: FontWeight.normal,fontSize: 18, fontStyle: FontStyle.normal, color: Colors.black)),
-                  Text("lorem ipsum blllaljdjjdja fhfh  dhdjcnc fh llal",textDirection: TextDirection.rtl ,textAlign: TextAlign.center,style: TextStyle(fontWeight: FontWeight.normal,fontSize: 18, fontStyle: FontStyle.normal, color: Colors.black)),
-                  Text("lorem ipsum blllaljdjjdja fhfh  dhdjcnc fh llal",textDirection: TextDirection.rtl ,textAlign: TextAlign.center,style: TextStyle(fontWeight: FontWeight.normal,fontSize: 18, fontStyle: FontStyle.normal, color: Colors.black)),
-                  Text("lorem ipsum blllaljdjjdja fhfh  dhdjcnc fh llal",textDirection: TextDirection.rtl ,textAlign: TextAlign.center,style: TextStyle(fontWeight: FontWeight.normal,fontSize: 18, fontStyle: FontStyle.normal, color: Colors.black)),
-                  Text("lorem ipsum blllaljdjjdja fhfh  dhdjcnc fh llal",textDirection: TextDirection.rtl ,textAlign: TextAlign.center,style: TextStyle(fontWeight: FontWeight.normal,fontSize: 18, fontStyle: FontStyle.normal, color: Colors.black)),
-                  Text("lorem ipsum blllaljdjjdja fhfh  dhdjcnc fh llal",textDirection: TextDirection.rtl ,textAlign: TextAlign.center,style: TextStyle(fontWeight: FontWeight.normal,fontSize: 18, fontStyle: FontStyle.normal, color: Colors.black)),
-                  Text("lorem ipsum blllaljdjjdja fhfh  dhdjcnc fh llal",textDirection: TextDirection.rtl ,textAlign: TextAlign.center,style: TextStyle(fontWeight: FontWeight.normal,fontSize: 18, fontStyle: FontStyle.normal, color: Colors.black)),
-                  Text("lorem ipsum blllaljdjjdja fhfh  dhdjcnc fh llal",textDirection: TextDirection.rtl ,textAlign: TextAlign.center,style: TextStyle(fontWeight: FontWeight.normal,fontSize: 18, fontStyle: FontStyle.normal, color: Colors.black)),
-               
-             ],
+          child: PDF(
+        enableSwipe: true,
+        swipeHorizontal: true,
+        autoSpacing: false,
+        pageFling: false,
+        onError: (error) {
+          print(error.toString());
+        },
+        onPageError: (page, error) {
+          print('$page: ${error.toString()}');
+        },
+        onPageChanged: (int page, int total) {
+          print('page change: $page/$total');
+        },
+          ).fromAsset('asset/pdf/Historique.pdf'),
            ),
-         ),
+        
     );
   }
 }
