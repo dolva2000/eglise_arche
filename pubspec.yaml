@@ -37,10 +37,17 @@ dependencies:
   flutter_cache_manager: ^3.0.1
   state_persistence: ^0.1.0
   json_serializable: ^4.1.1
+  flutter_statusbar_manager: ^2.0.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: "^0.9.0"
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "asset/icon/icon.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -55,6 +62,7 @@ flutter:
   assets:
     - asset/img/splashscreen.jpg
     - asset/img/bg.jpg
+    - asset/img/bg2.jpg
     - asset/img/Actua.png
     - asset/img/med.png
     - asset/img/video.png
@@ -67,6 +75,7 @@ flutter:
     - asset/img/dimanche.jpg
     - asset/img/Facebook.png
     - asset/img/undraw_online_articles_79ff.png
+    - asset/img/loading.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
   # For details regarding adding assets from package dependencies, see

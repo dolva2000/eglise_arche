@@ -8,16 +8,21 @@ class Services {
   static const CHANNEL_ID = 'UCU4JGb0ODSaAfw93RTqjjeA';
   static const _baseUrl = 'www.googleapis.com';
 
-  static Future<VideosList> getVideosList() async {
+  static Future<String> getVideosList({String pageToken: ''}) async {
     Map<String, String> parameters = {
       'part': 'snippet',
-      'maxResults': '25',
+      'maxResults': '12',
       'key': Constants.API_KEY,
       'channelId': CHANNEL_ID,
       'order': 'date',
       'type': 'video',
       'fields': 'pageInfo,nextPageToken,items(id,snippet)'
     };
+
+    if (pageToken != '') {
+      parameters.addAll({'pageToken': pageToken});
+    }
+
     Map<String, String> headers = {
       HttpHeaders.contentTypeHeader: 'application/json',
     };
@@ -28,7 +33,9 @@ class Services {
     );
     Response response = await http.get(uri, headers: headers);
     // print(response.body);
-    VideosList videosList = videosListFromJson(response.body);
-    return videosList;
+    // VideosList videosList = videosListFromJson(response.body);
+    //
+    print(response.statusCode);
+    return response.statusCode < 400 ? response.body : '';
   }
 }

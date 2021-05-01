@@ -8,18 +8,47 @@ class Menu extends StatelessWidget {
         elevation: 65,
         child: new ListView(
           children: <Widget>[
-            new UserAccountsDrawerHeader(
-              accountName: Text("Dolva"),
-              accountEmail: Text(
-                "Dolvabolokondi@gmail.com",
+            Container(
+              padding: EdgeInsets.symmetric(vertical: 25.0, horizontal: 15.0),
+              color: Colors.yellow.shade800,
+              child: Row(
+                children: [
+                  GestureDetector(
+                    child: CircleAvatar(
+                      radius: 30,
+                      backgroundColor: Colors.white,
+                      child: new Icon(Icons.person,
+                          color: Colors.yellow.shade800, size: 30.0),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Dolva",
+                          style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          width: 5,
+                          height: 5,
+                        ),
+                        Text(
+                          "Dolvabolokondi@gmail.com",
+                          style: TextStyle(
+                              fontSize: 13,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                  )
+                ],
               ),
-              currentAccountPicture: GestureDetector(
-                child: CircleAvatar(
-                  backgroundColor: Colors.white,
-                  child: new Icon(Icons.person, color: Color(0xFF21BFBD)),
-                ),
-              ),
-              decoration: new BoxDecoration(color: Color(0xFF21BFBD)),
             ),
             InkWell(
               onTap: () {},
@@ -27,7 +56,7 @@ class Menu extends StatelessWidget {
                   title: Text("Page D'acceuil"),
                   leading: Icon(
                     Icons.home,
-                    color: Color(0xFF21BFBD),
+                    color: Colors.yellow.shade800,
                   )),
             ),
             InkWell(
@@ -40,7 +69,7 @@ class Menu extends StatelessWidget {
               child: ListTile(
                   title: Text("Programme"),
                   leading: Icon(Icons.calendar_today_sharp,
-                      color: Color(0xFF21BFBD))),
+                      color: Colors.yellow.shade800)),
             ),
             InkWell(
               onTap: () {
@@ -51,19 +80,21 @@ class Menu extends StatelessWidget {
               },
               child: ListTile(
                   title: Text("Evénément"),
-                  leading: Icon(Icons.event_note, color: Color(0xFF21BFBD))),
+                  leading:
+                      Icon(Icons.event_note, color: Colors.yellow.shade800)),
             ),
             InkWell(
               onTap: () {},
               child: ListTile(
                   title: Text("Mes offrandes"),
-                  leading: Icon(Icons.dashboard, color: Color(0xFF21BFBD))),
+                  leading:
+                      Icon(Icons.dashboard, color: Colors.yellow.shade800)),
             ),
             InkWell(
               onTap: () {},
               child: ListTile(
                   title: Text("Mon Compte"),
-                  leading: Icon(Icons.favorite, color: Color(0xFF21BFBD))),
+                  leading: Icon(Icons.favorite, color: Colors.yellow.shade800)),
             ),
             InkWell(
               onTap: () {
@@ -72,7 +103,8 @@ class Menu extends StatelessWidget {
               },
               child: ListTile(
                   title: Text("Contact"),
-                  leading: Icon(Icons.contact_phone, color: Color(0xFF21BFBD))),
+                  leading:
+                      Icon(Icons.contact_phone, color: Colors.yellow.shade800)),
             ),
             Divider(),
             InkWell(

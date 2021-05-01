@@ -1,6 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+
+class NotificationService {
+  static final NotificationService _notificationService =
+      NotificationService._internal();
+
+  factory NotificationService() {
+    return _notificationService;
+  }
+
+  NotificationService._internal();
+  
+}
+
 
 class Programme extends StatefulWidget {
   @override
@@ -34,78 +48,84 @@ class _ProgrammeState extends State<Programme> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Programmes'),
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.yellow.shade800,
       ),
-      body: ListView.builder(
-          itemCount: list.length + 1,
-          itemBuilder: (context, index) {
-            if (index == 0) {
-              return Column(
-                children: [
-                  CarouselSlider(
-                      options: carouselSlider = CarouselOptions(
-                          height: MediaQuery.of(context).size.height - 480,
-                          autoPlay: true,
-                          autoPlayAnimationDuration: Duration(seconds: 3),
-                          autoPlayCurve: Curves.fastOutSlowIn,
-                          viewportFraction: 1.0,
-                          enlargeCenterPage: true,
-                          initialPage: 0,
-                          enableInfiniteScroll: true,
-                          reverse: false,
-                          autoPlayInterval: Duration(
-                            seconds: 4,
-                          ),
-                          onPageChanged: (index, reason) {
-                            setState(() {
-                              _current = index;
-                            });
-                          }
-                          // autoPlay: false,
-                          ),
-                      items: imglist.map((imgAsset) {
-                        return Builder(builder: (BuildContext context) {
-                          return Container(
-                            width: MediaQuery.of(context).size.width + 88,
-                            height: MediaQuery.of(context).size.height + 88,
-                            margin: EdgeInsets.symmetric(horizontal: 4.0),
-                            decoration:
-                                BoxDecoration(color: Colors.transparent),
-                            child: Image.asset(
-                              imgAsset,
-                              height: 550,
-                              fit: BoxFit.contain,
+      body: Container(
+        decoration: new BoxDecoration(
+            color: Color.fromRGBO(240, 240, 253, 1),
+            image: DecorationImage(
+                image: AssetImage('asset/img/bg2.jpg'), fit: BoxFit.cover)),
+        child: ListView.builder(
+            itemCount: list.length + 1,
+            itemBuilder: (context, index) {
+              if (index == 0) {
+                return Column(
+                  children: [
+                    CarouselSlider(
+                        options: carouselSlider = CarouselOptions(
+                            height: MediaQuery.of(context).size.height - 480,
+                            autoPlay: true,
+                            autoPlayAnimationDuration: Duration(seconds: 3),
+                            autoPlayCurve: Curves.fastOutSlowIn,
+                            viewportFraction: 1.0,
+                            enlargeCenterPage: true,
+                            initialPage: 0,
+                            enableInfiniteScroll: true,
+                            reverse: false,
+                            autoPlayInterval: Duration(
+                              seconds: 4,
                             ),
-                          );
-                        });
-                      }).toList()),
-                  ListTile(
-                    title: Text(
-                      "PAROLES D'ENCOURAGEMENT POUR VOUS FAMILLE ROYALE :",
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                            onPageChanged: (index, reason) {
+                              setState(() {
+                                _current = index;
+                              });
+                            }
+                            // autoPlay: false,
+                            ),
+                        items: imglist.map((imgAsset) {
+                          return Builder(builder: (BuildContext context) {
+                            return Container(
+                              width: MediaQuery.of(context).size.width + 88,
+                              height: MediaQuery.of(context).size.height + 88,
+                              margin: EdgeInsets.symmetric(horizontal: 4.0),
+                              decoration:
+                                  BoxDecoration(color: Colors.transparent),
+                              child: Image.asset(
+                                imgAsset,
+                                height: 550,
+                                fit: BoxFit.contain,
+                              ),
+                            );
+                          });
+                        }).toList()),
+                    ListTile(
+                      title: Text(
+                        "PAROLES D'ENCOURAGEMENT POUR VOUS FAMILLE ROYALE :",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, color: Colors.white),
+                      ),
                     ),
+                    ListTile(
+                      title: Text(
+                        "VOICI CE QUE LES CHRETIENS OU MEMBRES DE L'ÉGLISE LOCALE DOIVENT COMPRENDRE ABSOLUMENT \n",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    )
+                  ],
+                );
+              } else {
+                return ListTile(
+                  autofocus: true,
+                  title: Text(
+                    index.toString() + ".   " + list[index - 1],
+                    textAlign: TextAlign.justify,
+                    style: TextStyle(fontSize: 12, color: Colors.white),
                   ),
-                  ListTile(
-                    title: Text(
-                      "VOICI CE QUE LES CHRETIENS OU MEMBRES DE L'ÉGLISE LOCALE DOIVENT COMPRENDRE ABSOLUMENT \n",
-                      textAlign: TextAlign.center,
-                    ),
-                  )
-                ],
-              );
-            } else {
-              return ListTile(
-                autofocus: true,
-                title: Text(
-                  index.toString() + ".   " + list[index - 1],
-                  textAlign: TextAlign.justify,
-                  style: TextStyle(
-                    fontSize: 12,
-                  ),
-                ),
-              );
-            }
-          }),
+                );
+              }
+            }),
+      ),
     );
   }
 }

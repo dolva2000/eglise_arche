@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'vision.dart';
+
 class Information extends StatefulWidget {
   @override
   _InformationState createState() => _InformationState();
@@ -10,19 +11,17 @@ class _InformationState extends State<Information> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: new Text("INFORMATION"),
-          backgroundColor: Color(0xFF21BFBD),
-          elevation: 11,
+          title: new Text("Information"),
+          backgroundColor: Colors.yellow.shade800,
+          elevation: 2,
         ),
         body: Container(
-          color: Color(0xff130502),
+          color: Colors.white,
           child: Column(
-            
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             mainAxisSize: MainAxisSize.max,
             children: [
-             
-                    InkWell(
+              InkWell(
                   onTap: () {
                     Navigator.push(
                         context,
@@ -33,39 +32,38 @@ class _InformationState extends State<Information> {
                   child: Center(
                       child: Column(
                     children: [
-                       Container(
+                      Container(
                         height: 200,
-                    width: double.infinity,
-                        color: Colors.white70,
+                        width: double.infinity,
+                        color: Colors.blue.shade300,
                         child: Center(
-                          child: ListView(children: [
-                            Container(
-                              height: 150,
-                                child: Image.asset("asset/img/hhh.png") ,
-                            ),
-                            Center(
-                              child:  Text("Vision et Historique", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,color: Colors.yellow),),
-                            )
-                           
-
-                         
-                          ],),
+                          child: ListView(
+                            children: [
+                              Container(
+                                height: 150,
+                                child: Image.asset("asset/img/hhh.png"),
+                              ),
+                              Center(
+                                child: Text(
+                                  "Vision et Historique",
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white),
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                       )
-                    
-                   
                     ],
-                  )
-                  )
-                  ),
-                  
+                  ))),
               InkWell(
-             
                   onTap: () {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) =>  Pastorale(),
+                          builder: (context) => Pastorale(),
                         ));
                   },
                   splashColor: Colors.green,
@@ -73,38 +71,42 @@ class _InformationState extends State<Information> {
                       child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                     Container(
+                      Container(
                         height: 200,
-                    width: double.infinity,
+                        width: double.infinity,
                         color: Colors.white,
                         child: Center(
-                          child: ListView(children: [
-                            Container(
-                              height: 150,
-                                child: Icon(Icons.person_rounded , size: 150,color: Colors.blue,) ,
-                            ),
-                            Center(
-                              child:  Text("Corps pastorale", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,color: Colors.black),),
-                            )
-                           
-
-                         
-                          ],),
+                          child: ListView(
+                            children: [
+                              Container(
+                                height: 150,
+                                child: Icon(
+                                  Icons.person_outline_rounded,
+                                  size: 150,
+                                  color: Colors.yellow.shade800,
+                                ),
+                              ),
+                              Center(
+                                child: Text(
+                                  "Corps Pastorale",
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.yellow.shade800),
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                       )
                     ],
-                  )
-                  )
-                  
-                  ),
-                  
+                  ))),
               InkWell(
-             
                   onTap: () {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) =>  Information(),
+                          builder: (context) => Information(),
                         ));
                   },
                   splashColor: Colors.green,
@@ -112,35 +114,39 @@ class _InformationState extends State<Information> {
                       child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                     Container(
+                      Container(
                         height: 200,
-                    width: double.infinity,
-                        color: Colors.white70,
+                        width: double.infinity,
+                        color: Colors.red.shade300,
                         child: Center(
-                          child: ListView(children: [
-                            Container(
-                              //local_fire_department_sharp
-                              height: 150,
-                                child: Icon(Icons.home_work_rounded,size: 150,color: Colors.white,) ,
-                            ),
-                            Center(
-                              child:  Text("Retrouve-Nous", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,color: Colors.yellow),),
-                            )
-                           
-
-                         
-                          ],),
+                          child: ListView(
+                            children: [
+                              Container(
+                                //local_fire_department_sharp
+                                height: 150,
+                                child: Icon(
+                                  Icons.map_rounded,
+                                  size: 150,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              Center(
+                                child: Text(
+                                  "Retrouve-Nous",
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white),
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                       )
                     ],
-                  )
-                  )
-                  
-                  ),
-                  
+                  ))),
             ],
           ),
         ));
   }
 }
-
