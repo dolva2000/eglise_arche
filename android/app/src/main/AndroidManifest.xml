@@ -1,8 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.apparche">
    <application
-        android:label="CEF ARCHE MAKALA"
+        android:label="Arche AM"
         android:icon="@mipmap/ic_launcher">
+        <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyCUy8Gd0IhS18a1FsxkW3zS5XWSi2XQ7W8"/>
         <activity
             android:showWhenLocked="true"
             android:turnScreenOn="true"

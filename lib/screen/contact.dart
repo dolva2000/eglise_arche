@@ -28,7 +28,7 @@ class _ContactState extends State<Contact> {
               Padding(
                 padding: const EdgeInsets.only(top: 10),
                 child: Text(
-                  "Contatez Nous pour prendre Rendez-Vous avec le pasteur",
+                  "Souhaitez-vous contacter le CEF ARCHE DE L'ALLIANCE MAKALA ?",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
@@ -45,10 +45,10 @@ class _ContactState extends State<Contact> {
                   style: ButtonStyle(
                       backgroundColor:
                           MaterialStateProperty.all(Colors.yellow.shade800)),
-                  onPressed: () => launch("tel://+243817087305"),
+                  onPressed: () => launch("tel://+243821805785"),
                   icon: Icon(Icons.call),
                   label: Text(
-                    "Appelez-Nous",
+                    "Par Appel",
                     style: TextStyle(fontSize: 12, color: Colors.white),
                   ),
                 ),
@@ -60,13 +60,13 @@ class _ContactState extends State<Contact> {
                   style: ButtonStyle(
                       backgroundColor:
                           MaterialStateProperty.all(Colors.yellow.shade800)),
-                  onPressed: () => launch("sms:+243817087305"),
+                  onPressed: () => launch("sms:+243821805785"),
                   icon: Icon(
                     Icons.send,
                     color: Colors.white,
                   ),
                   label: Text(
-                    "Envoyez-Nous Un SMS",
+                    "Par SMS",
                     style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -82,13 +82,13 @@ class _ContactState extends State<Contact> {
                     backgroundColor:
                         MaterialStateProperty.all(Colors.yellow.shade800),
                   ),
-                  onPressed: () => launch("mailto:dolvaboloko@gmail.com"),
+                  onPressed: () => launch("mailto:archemakala@gmail.com"),
                   icon: Icon(
                     Icons.mail,
                     color: Colors.red,
                   ),
                   label: Text(
-                    " Envoyez-nous un mail",
+                    "Par Mail",
                     style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -104,7 +104,7 @@ class _ContactState extends State<Contact> {
               Padding(
                 padding: const EdgeInsets.only(top: 10),
                 child: Text(
-                  "Nous Recevons chaque mardi à 12h00 ",
+                  "Nous sommes toujours disponibles pour répondre à tout type de préocupations",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
