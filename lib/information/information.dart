@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'vision.dart';
+import 'geolocation.dart';
 
 class Information extends StatefulWidget {
   @override
@@ -106,7 +107,7 @@ class _InformationState extends State<Information> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => Information(),
+                          builder: (context) => GeoLocation(),
                         ));
                   },
                   splashColor: Colors.green,

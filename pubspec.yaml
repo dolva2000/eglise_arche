@@ -39,6 +39,7 @@ dependencies:
   json_serializable: ^4.1.1
   flutter_statusbar_manager: ^2.0.0
   flutter_cached_pdfview: ^0.4.0-nullsafety
+  google_maps_flutter: ^2.0.3
 
 dev_dependencies:
   flutter_test:
