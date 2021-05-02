@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'vision.dart';
+import 'geolocation.dart';
 import 'package:apparche/screen/maps_screen.dart';
 
 class Information extends StatefulWidget {
@@ -107,7 +108,7 @@ class _InformationState extends State<Information> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => MapsView(),
+                          builder: (context) => GeoLocation(),
                         ));
                   },
                   splashColor: Colors.green,
