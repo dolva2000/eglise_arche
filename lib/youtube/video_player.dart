@@ -52,6 +52,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.videoItem.info.title),
+        backgroundColor: Colors.indigo,
       ),
       body: Column(
         children: [

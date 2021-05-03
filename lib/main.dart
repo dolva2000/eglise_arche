@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    FlutterStatusbarManager.setColor(Colors.yellow.shade800);
+    FlutterStatusbarManager.setColor(Colors.indigo);
     FlutterStatusbarManager.setStyle(StatusBarStyle.LIGHT_CONTENT);
     return PersistedAppState(
       storage: JsonFileStorage(initialData: {

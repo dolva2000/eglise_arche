@@ -3,8 +3,6 @@ import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
-
-
 class Programme extends StatefulWidget {
   @override
   _ProgrammeState createState() => _ProgrammeState();
@@ -37,7 +35,7 @@ class _ProgrammeState extends State<Programme> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Programmes'),
-        backgroundColor: Colors.yellow.shade800,
+        backgroundColor: Colors.indigo,
       ),
       body: Container(
         decoration: new BoxDecoration(
@@ -120,6 +118,3 @@ class _ProgrammeState extends State<Programme> {
 }
 
 // Sermont ou predicatons
-
-
- 

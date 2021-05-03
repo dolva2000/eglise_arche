@@ -1,11 +1,11 @@
+import 'package:flutter/material.dart';
 import 'package:apparche/information/information.dart';
 import 'package:apparche/programme/programme.dart';
 import 'package:apparche/youtube/home_screen.dart';
-import 'package:flutter/material.dart';
 import 'package:apparche/screen/drawer.dart';
 import 'package:apparche/screen/affermissement_screen.dart';
 import 'package:apparche/screen/settings_screen.dart';
-import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+import 'package:apparche/screen/events_screen.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'dart:math';
 
@@ -30,12 +30,22 @@ class _HomeState extends State<Home> {
     return Scaffold(
         drawer: Menu(),
         appBar: AppBar(
-          backgroundColor: Colors.yellow.shade800,
+          backgroundColor: Colors.indigo,
           elevation: 2,
+          centerTitle: true,
           title: Text(
-            "Accueil",
+            "Arche Makala",
             style: TextStyle(fontSize: 22, color: Colors.white),
           ),
+          actions: [
+            Padding(
+              padding: const EdgeInsets.only(right: 20),
+              child: CircleAvatar(
+                radius: 20,
+                backgroundImage: AssetImage("asset/img/hhh.png"),
+              ),
+            ),
+          ],
         ),
         body: Stack(
           children: <Widget>[
@@ -79,7 +89,7 @@ class _HomeState extends State<Home> {
                                   size: 70.0,
                                 ),
                                 Text(
-                                  "Actualite",
+                                  "Actualités",
                                   style: TextStyle(
                                     fontSize: 15.0,
                                     color: Colors.blue,
@@ -102,7 +112,8 @@ class _HomeState extends State<Home> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => AffermissementScreen(),
+                                    builder: (context) =>
+                                        AffermissementScreen(),
                                   ));
                             },
                             splashColor: Colors.green,
@@ -112,14 +123,14 @@ class _HomeState extends State<Home> {
                               children: [
                                 Icon(
                                   Icons.menu_book_rounded,
-                                  color: Colors.blue,
+                                  color: Colors.yellow.shade800,
                                   size: 70.0,
                                 ),
                                 Text(
-                                  "Affermissement",
+                                  "Affermissements",
                                   style: TextStyle(
                                     fontSize: 15.0,
-                                    color: Colors.blue,
+                                    color: Colors.yellow.shade800,
                                   ),
                                 )
                               ],
@@ -186,14 +197,14 @@ class _HomeState extends State<Home> {
                               children: [
                                 Icon(
                                   Icons.event_note_rounded,
-                                  color: Colors.red,
+                                  color: Colors.green,
                                   size: 70.0,
                                 ),
                                 Text(
-                                  "Programme",
+                                  "Programmes",
                                   style: TextStyle(
                                     fontSize: 15.0,
-                                    color: Colors.red,
+                                    color: Colors.green,
                                   ),
                                 )
                               ],
@@ -223,14 +234,14 @@ class _HomeState extends State<Home> {
                               children: [
                                 Icon(
                                   Icons.settings_rounded,
-                                  color: Colors.yellow.shade800,
+                                  color: Colors.cyan,
                                   size: 70.0,
                                 ),
                                 Text(
-                                  "Parametres",
+                                  "Paramètres",
                                   style: TextStyle(
                                     fontSize: 15.0,
-                                    color: Colors.yellow.shade800,
+                                    color: Colors.cyan,
                                   ),
                                 )
                               ],
@@ -260,14 +271,14 @@ class _HomeState extends State<Home> {
                                 children: [
                                   Icon(
                                     Icons.info_rounded,
-                                    color: Colors.yellow.shade800,
+                                    color: Colors.indigo,
                                     size: 70.0,
                                   ),
                                   Text(
-                                    "Information",
+                                    "Informations",
                                     style: TextStyle(
                                       fontSize: 15.0,
-                                      color: Colors.yellow.shade800,
+                                      color: Colors.indigo,
                                     ),
                                   )
                                 ],
@@ -281,50 +292,5 @@ class _HomeState extends State<Home> {
             ),
           ],
         ));
-  }
-}
-
-class WebViewPage extends StatefulWidget {
-  WebViewPage({Key key, this.url}) : super(key: key);
-  final String url;
-  @override
-  _WebViewPageState createState() => _WebViewPageState();
-}
-
-class _WebViewPageState extends State<WebViewPage> {
-  final flutterWebViewPlugin = FlutterWebviewPlugin();
-
-  @override
-  Widget build(BuildContext context) {
-    return WebviewScaffold(
-      url: 'https://anaima.vercel.app/',
-      mediaPlaybackRequiresUserGesture: false,
-      appBar: AppBar(
-        backgroundColor: Colors.yellow.shade800,
-        title: const Text('Actualite'),
-      ),
-      appCacheEnabled: true,
-      withZoom: true,
-      withLocalStorage: true,
-      withLocalUrl: true,
-      scrollBar: false,
-      hidden: true,
-      initialChild: Container(
-          color: Colors.white,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset("asset/img/undraw_online_articles_79ff.png")
-            ],
-          )),
-      bottomNavigationBar: BottomAppBar(
-        child: IconButton(
-          icon: const Icon(Icons.autorenew),
-          onPressed: () {
-            flutterWebViewPlugin.reload();
-          },
-        ),
-      ),
-    );
   }
 }
