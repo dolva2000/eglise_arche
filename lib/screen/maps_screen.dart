@@ -23,20 +23,20 @@ class _MapsViewState extends State<MapsView> {
       ),
       body: Container(
         decoration: new BoxDecoration(
-            color: Color.fromRGBO(240, 240, 253, 1),
-            image: DecorationImage(
-                image: AssetImage('asset/img/bg2.jpg'), fit: BoxFit.cover)),
-                child: GoogleMap(
-                myLocationEnabled: true,
-                markers: {Marker(markerId: MarkerId('CEF'), position: const LatLng(-4.3720830, 15.3187206)),},
-        mapType: MapType.hybrid,
-        initialCameraPosition: _kGooglePlex,
-        onMapCreated: (GoogleMapController controller) {
-          _controller.complete(controller);
-        },
+          color: Color.fromRGBO(240, 240, 253, 1),
+          image: DecorationImage(
+          image: AssetImage('asset/img/bg2.jpg'), fit: BoxFit.cover),
+        ),
+        child: GoogleMap(
+          myLocationEnabled: true,
+          markers: {Marker(markerId: MarkerId('CEF'), position: const LatLng(-4.3720830, 15.3187206)),},
+          mapType: MapType.hybrid,
+          initialCameraPosition: _kGooglePlex,
+          onMapCreated: (GoogleMapController controller) {
+            _controller.complete(controller);
+          },
+        ),
       ),
-      ),
-      
     );
   }
 }
