@@ -40,6 +40,10 @@ dependencies:
   flutter_statusbar_manager: ^2.0.0
   flutter_cached_pdfview: ^0.4.0-nullsafety
   google_maps_flutter: ^2.0.3
+  rxdart: ^0.26.0
+  path_provider: ^2.0.1
+  android_alarm_manager: ^2.0.0
+  shared_preferences: ^2.0.5
 
 dev_dependencies:
   flutter_test:

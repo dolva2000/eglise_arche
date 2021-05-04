@@ -108,7 +108,7 @@ class _InformationState extends State<Information> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => GeoLocation(),
+                          builder: (context) => MapsView(),
                         ));
                   },
                   splashColor: Colors.green,
