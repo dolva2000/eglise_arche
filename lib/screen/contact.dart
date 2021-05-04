@@ -12,7 +12,7 @@ class _ContactState extends State<Contact> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.indigo,
+        //backgroundColor: Colors.indigo,
         title: Text("Contact"),
       ),
       body: new Center(

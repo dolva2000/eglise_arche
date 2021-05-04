@@ -12,7 +12,7 @@ class _VisionState extends State<Vision> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Vision et Historique"),
-        backgroundColor: Colors.indigo,
+        //backgroundColor: Colors.indigo,
         elevation: 11,
       ),
       body: Container(

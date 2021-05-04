@@ -20,7 +20,7 @@ class _MapsViewState extends State<MapsView> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Retrouvez-Nous'),
-        backgroundColor: Colors.indigo,
+        //backgroundColor: Colors.indigo,
       ),
       body: Container(
         decoration: new BoxDecoration(

@@ -11,7 +11,7 @@ class _PastoraleState extends State<Pastorale> {
     return Scaffold(
       appBar: AppBar(
         title: new Text("Corps Pastorale"),
-        backgroundColor: Colors.indigo,
+        //backgroundColor: Colors.indigo,
         elevation: 11,
       ),
       body: Container(

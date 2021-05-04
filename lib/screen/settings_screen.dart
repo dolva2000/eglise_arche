@@ -11,7 +11,7 @@ class _SettingsState extends State<SettingsScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Paramètres'),
-        backgroundColor: Colors.indigo,
+        //backgroundColor: Colors.indigo,
       ),
       body: Container(),
     );

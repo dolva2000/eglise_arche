@@ -11,7 +11,7 @@ class _AccountViewState extends State<AccountView> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Mon Compte'),
-        backgroundColor: Colors.indigo,
+        //backgroundColor: Colors.indigo,
       ),
       body: Container(),
     );

@@ -11,7 +11,7 @@ class _AboutViewState extends State<AboutView> {
     return Scaffold(
       appBar: AppBar(
         title: Text('A Propos'),
-        backgroundColor: Colors.indigo,
+        //backgroundColor: Colors.indigo,
       ),
       body: Container(),
     );

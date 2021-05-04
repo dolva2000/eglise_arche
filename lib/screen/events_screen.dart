@@ -17,7 +17,7 @@ class _WebViewPageState extends State<WebViewPage> {
       url: 'https://anaima.vercel.app/',
       mediaPlaybackRequiresUserGesture: false,
       appBar: AppBar(
-        backgroundColor: Colors.indigo,
+        //backgroundColor: Colors.indigo,
         title: const Text('Actualités'),
       ),
       appCacheEnabled: true,

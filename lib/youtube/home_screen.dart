@@ -100,7 +100,7 @@ class _HomeScreenState extends State<HomeScreen>
     }
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.indigo,
+        //backgroundColor: Colors.indigo,
         title: Text('Videos'),
       ),
       body: _videosList.videos.length == 0

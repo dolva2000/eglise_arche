@@ -35,7 +35,7 @@ class _ProgrammeState extends State<Programme> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Programmes'),
-        backgroundColor: Colors.indigo,
+        //backgroundColor: Colors.indigo,
       ),
       body: Container(
         decoration: new BoxDecoration(

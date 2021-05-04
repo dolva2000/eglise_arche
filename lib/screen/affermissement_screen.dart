@@ -11,7 +11,7 @@ class _AffermissementState extends State<AffermissementScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Affermissements'),
-        backgroundColor: Colors.indigo,
+        //backgroundColor: Colors.indigo,
       ),
       body: Container(),
     );
