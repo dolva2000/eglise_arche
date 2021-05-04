@@ -1,5 +1,10 @@
-import 'package:apparche/screen/contact.dart';
 import 'package:flutter/material.dart';
+import 'package:apparche/screen/contact.dart';
+import 'package:apparche/screen/about_screen.dart';
+import 'package:apparche/screen/settings_screen.dart';
+import 'package:apparche/screen/events_screen.dart';
+import 'package:apparche/screen/account_screen.dart';
+import 'package:apparche/programme/programme.dart';
 
 class Menu extends StatelessWidget {
   @override
@@ -10,7 +15,7 @@ class Menu extends StatelessWidget {
           children: <Widget>[
             Container(
               padding: EdgeInsets.symmetric(vertical: 25.0, horizontal: 15.0),
-              color: Colors.yellow.shade800,
+              color: Colors.indigo,
               child: Row(
                 children: [
                   GestureDetector(
@@ -18,7 +23,7 @@ class Menu extends StatelessWidget {
                       radius: 30,
                       backgroundColor: Colors.white,
                       child: new Icon(Icons.person,
-                          color: Colors.yellow.shade800, size: 30.0),
+                          color: Colors.indigo, size: 30.0),
                     ),
                   ),
                   Padding(
@@ -38,7 +43,7 @@ class Menu extends StatelessWidget {
                           height: 5,
                         ),
                         Text(
-                          "Dolvabolokondi@gmail.com",
+                          "dolvabolokondi@gmail.com",
                           style: TextStyle(
                               fontSize: 13,
                               color: Colors.white,
@@ -55,46 +60,44 @@ class Menu extends StatelessWidget {
               child: ListTile(
                   title: Text("Page D'acceuil"),
                   leading: Icon(
-                    Icons.home,
-                    color: Colors.yellow.shade800,
+                    Icons.home_outlined,
+                    color: Colors.indigo,
                   )),
             ),
             InkWell(
               onTap: () {
-                // Navigator.push(
-                //  context,
-                // MaterialPageRoute(
-                //builder: (context) => Programme(),
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Programme()));
               },
               child: ListTile(
                   title: Text("Programme"),
-                  leading: Icon(Icons.calendar_today_sharp,
-                      color: Colors.yellow.shade800)),
+                  leading:
+                      Icon(Icons.calendar_today_sharp, color: Colors.indigo)),
             ),
             InkWell(
               onTap: () {
-                // Navigator.push(
-                //  context,
-                // MaterialPageRoute(
-                //builder: (context) => Programme(),
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => WebViewPage()));
               },
               child: ListTile(
                   title: Text("Evénément"),
-                  leading:
-                      Icon(Icons.event_note, color: Colors.yellow.shade800)),
+                  leading: Icon(Icons.event_note, color: Colors.indigo)),
             ),
             InkWell(
               onTap: () {},
               child: ListTile(
                   title: Text("Mes offrandes"),
-                  leading:
-                      Icon(Icons.dashboard, color: Colors.yellow.shade800)),
+                  leading: Icon(Icons.money_outlined, color: Colors.indigo)),
             ),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => AccountView()));
+              },
               child: ListTile(
                   title: Text("Mon Compte"),
-                  leading: Icon(Icons.favorite, color: Colors.yellow.shade800)),
+                  leading: Icon(Icons.account_circle_outlined,
+                      color: Colors.indigo)),
             ),
             InkWell(
               onTap: () {
@@ -104,20 +107,26 @@ class Menu extends StatelessWidget {
               child: ListTile(
                   title: Text("Contact"),
                   leading:
-                      Icon(Icons.contact_phone, color: Colors.yellow.shade800)),
+                      Icon(Icons.contact_phone_outlined, color: Colors.indigo)),
             ),
             Divider(),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => SettingsScreen()));
+              },
               child: ListTile(
-                  title: Text("Parametre"),
+                  title: Text("Paramètre"),
                   leading: Icon(Icons.settings, color: Colors.blue)),
             ),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => AboutView()));
+              },
               child: ListTile(
-                  title: Text("Apropos"),
-                  leading: Icon(Icons.help, color: Colors.green)),
+                  title: Text("A propos"),
+                  leading: Icon(Icons.info_outline, color: Colors.green)),
             ),
           ],
         ));

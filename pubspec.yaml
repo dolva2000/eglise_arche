@@ -69,13 +69,16 @@ flutter:
     - asset/img/splashscreen.jpg
     - asset/img/bg.jpg
     - asset/img/bg2.jpg
+    - asset/img/mardi.jpg
+    - asset/img/jeudi.jpg
+    - asset/img/find-us.jpg
+    - asset/img/church-vision.jpg
+    - asset/img/pastor.jpg
     - asset/img/Actua.png
     - asset/img/med.png
     - asset/img/video.png
     - asset/img/par.png
     - asset/img/par.png
-    - asset/img/mardi.jpg
-    - asset/img/jeudi.jpg
     - asset/img/hhh.png
     - asset/img/pasteur.png
     - asset/img/dimanche.jpg

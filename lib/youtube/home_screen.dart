@@ -17,6 +17,8 @@ class _HomeScreenState extends State<HomeScreen>
   PersistedData _data;
   VideosList _videosList;
   bool _loading;
+  bool _hasNetwortVideos;
+  bool _hasNextPageToken;
   String _nextPageToken;
   int _videosCount;
   ScrollController _scrollController;
@@ -25,13 +27,13 @@ class _HomeScreenState extends State<HomeScreen>
   void initState() {
     super.initState();
     _loading = true;
+    _hasNetwortVideos = false;
     _scrollController = new ScrollController();
     _videosList = VideosList();
     _videosList.videos = [];
     _nextPageToken = '';
-    _videosCount = 0;
+    _hasNextPageToken = true;
     _loadVideos();
-    print('data  $_data');
   }
 
   @override
@@ -41,56 +43,67 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   _loadVideos() async {
-    print('loading video start');
     String tempVideosListJson = await Services.getVideosList();
-    print('loading video end $tempVideosListJson');
     if (tempVideosListJson != null && tempVideosListJson != '') {
-      VideosList tempVideosList = videosListFromJson(tempVideosListJson);
-      _data['video'] = tempVideosListJson;
-      setState(() {
-        _nextPageToken = tempVideosList.nextPageToken;
-        _videosCount = tempVideosList.pageInfo.totalResults;
-      });
+      try {
+        VideosList tempVideosList = videosListFromJson(tempVideosListJson);
+        _data['video'] = tempVideosListJson;
+        //_videosList.videos = tempVideosList.videos;
+        setState(() {
+          _hasNetwortVideos = true;
+          _nextPageToken = tempVideosList.nextPageToken;
+          _videosCount = tempVideosList.pageInfo.totalResults;
+        });
+      } catch (e) {
+        print(e);
+      }
     }
-
-    if (_data['video'] != null && _data['video'] != '') {
-      VideosList storedVideosList = videosListFromJson(_data['video']);
-      _videosList.videos.addAll(storedVideosList.videos);
-    }
-
     setState(() {
       _loading = false;
     });
   }
 
   _loadNextVideos() async {
-    String tempVideosListJson =
-        await Services.getVideosList(pageToken: _nextPageToken);
+    if (_hasNextPageToken) {
+      String tempVideosListJson =
+          await Services.getVideosList(pageToken: _nextPageToken);
 
-    if (tempVideosListJson != null && tempVideosListJson != '') {
-      VideosList tempVideosList = videosListFromJson(tempVideosListJson);
+      if (_hasNetwortVideos &&
+          tempVideosListJson != null &&
+          tempVideosListJson != '') {
+        VideosList tempVideosList = videosListFromJson(tempVideosListJson);
 
-      if (tempVideosList.nextPageToken != _nextPageToken &&
-          tempVideosList.nextPageToken != null) {
-        _videosList.videos.addAll(tempVideosList.videos);
-        setState(() {
-          _nextPageToken = tempVideosList.nextPageToken;
-        });
-        print("nextPageToken2 => $tempVideosList.nextPageToken");
+        if (tempVideosList.nextPageToken == null) {
+          setState(() {
+            _hasNextPageToken = false;
+          });
+        }
+
+        if (tempVideosList.nextPageToken != _nextPageToken) {
+          _videosList.videos.addAll(tempVideosList.videos);
+          setState(() {
+            _nextPageToken = tempVideosList.nextPageToken;
+          });
+        }
+        print("nextPageToken => $_nextPageToken");
       }
-      print("nextPageToken => $_nextPageToken");
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    print('data  $_data');
+    if (!_hasNetwortVideos && _data['video'] != null && _data['video'] != '') {
+      VideosList storedVideosList = videosListFromJson(_data['video']);
+      if (storedVideosList.videos != null) {
+        _videosList.videos.addAll(storedVideosList.videos);
+      }
+    }
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.yellow.shade800,
+        //backgroundColor: Colors.indigo,
         title: Text('Videos'),
       ),
-      body: _loading
+      body: _videosList.videos.length == 0
           ? Container(
               color: Colors.white,
               child: Column(
@@ -100,7 +113,7 @@ class _HomeScreenState extends State<HomeScreen>
                 ],
               ))
           : Container(
-              color: Colors.white,
+              color: Colors.grey.shade100,
               child: Column(
                 children: [
                   Expanded(
@@ -112,7 +125,8 @@ class _HomeScreenState extends State<HomeScreen>
                           if (notification.metrics.pixels ==
                               notification.metrics.maxScrollExtent) {
                             print('_loadNextVideos');
-                            _loadNextVideos();
+                            //_loadNextVideos();
+                            return true;
                           }
                           return true;
                         },
@@ -121,6 +135,16 @@ class _HomeScreenState extends State<HomeScreen>
                           itemCount: _videosList.videos.length,
                           itemBuilder: (context, index) {
                             VideoItem videoItem = _videosList.videos[index];
+                            if (_videosList.videos.length > 0 &&
+                                _videosList.videos.length == index + 1 &&
+                                _hasNextPageToken) {
+                              return Center(
+                                child: TextButton(
+                                  onPressed: () => _loadNextVideos(),
+                                  child: Text('Voir Plus'),
+                                ),
+                              );
+                            }
                             return InkWell(
                               onTap: () async {
                                 Navigator.push(context,
@@ -129,10 +153,12 @@ class _HomeScreenState extends State<HomeScreen>
                                       videoItem: videoItem);
                                 }));
                               },
+                              splashColor: Colors.indigo,
                               child: Container(
                                 padding: const EdgeInsets.symmetric(
-                                    horizontal: 20.0, vertical: 5.0),
+                                    horizontal: 15.0, vertical: 5.0),
                                 child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Image(
                                       image: CachedNetworkImageProvider(
@@ -140,9 +166,40 @@ class _HomeScreenState extends State<HomeScreen>
                                           maxHeight: 150,
                                           maxWidth: 150),
                                       fit: BoxFit.cover,
+                                      loadingBuilder: (BuildContext context,
+                                          Widget child,
+                                          ImageChunkEvent loadingProgress) {
+                                        if (loadingProgress == null)
+                                          return child;
+                                        return Container(                         
+                                          width: 150,
+                                          child:Image.asset("asset/img/hhh.png"),
+                                        );
+                                      },
                                     ),
                                     SizedBox(width: 10),
-                                    Flexible(child: Text(videoItem.info.title)),
+                                    Flexible(
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            videoItem.info.title,
+                                            maxLines: 3,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                          SizedBox(height: 5),
+                                          Text(
+                                            'publiée le ${videoItem.info.publishedAt.toString()}',
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(fontSize: 10),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
                                   ],
                                 ),
                               ),

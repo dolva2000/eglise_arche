@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'vision.dart';
+import 'pastoral.dart';
 import 'geolocation.dart';
 import 'package:apparche/screen/maps_screen.dart';
 
@@ -13,8 +14,8 @@ class _InformationState extends State<Information> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: new Text("Information"),
-          backgroundColor: Colors.yellow.shade800,
+          title: new Text("Informations"),
+          //backgroundColor: Colors.indigo,
           elevation: 2,
         ),
         body: Container(
@@ -23,130 +24,175 @@ class _InformationState extends State<Information> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             mainAxisSize: MainAxisSize.max,
             children: [
-              InkWell(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => Vision(),
-                        ));
-                  },
-                  child: Center(
-                      child: Column(
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 0.5),
+                  child: Stack(
                     children: [
                       Container(
-                        height: 200,
-                        width: double.infinity,
-                        color: Colors.blue.shade300,
-                        child: Center(
-                          child: ListView(
-                            children: [
-                              Container(
-                                height: 150,
-                                child: Image.asset("asset/img/hhh.png"),
-                              ),
-                              Center(
-                                child: Text(
-                                  "Vision et Historique",
-                                  style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white),
-                                ),
-                              )
-                            ],
+                        decoration: new BoxDecoration(
+                          color: Color.fromRGBO(240, 240, 253, 1),
+                          image: DecorationImage(
+                            image:
+                                AssetImage('asset/img/church-vision.jpg'),
+                            fit: BoxFit.cover,
                           ),
                         ),
-                      )
+                      ),
+                      Container(
+                        child: InkWell(
+                          splashColor: Colors.green,
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Vision(),
+                                ));
+                          },
+                          child: Container(
+                            color: Color.fromARGB(220, 0, 0, 0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Center(
+                                  child: Container(
+                                    height: 60,
+                                    child: Image.asset("asset/img/hhh.png"),
+                                  ),
+                                ),
+                                Center(
+                                  child: Text(
+                                    "Vision et Historique",
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.yellow.shade200),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
                     ],
-                  ))),
-              InkWell(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => Pastorale(),
-                        ));
-                  },
-                  splashColor: Colors.green,
-                  child: Center(
-                      child: Column(
-                    mainAxisSize: MainAxisSize.min,
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 0.5),
+                  child: Stack(
                     children: [
                       Container(
-                        height: 200,
-                        width: double.infinity,
-                        color: Colors.white,
-                        child: Center(
-                          child: ListView(
-                            children: [
-                              Container(
-                                height: 150,
-                                child: Icon(
-                                  Icons.person_outline_rounded,
-                                  size: 150,
-                                  color: Colors.yellow.shade800,
-                                ),
-                              ),
-                              Center(
-                                child: Text(
-                                  "Corps Pastorale",
-                                  style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.yellow.shade800),
-                                ),
-                              )
-                            ],
+                        decoration: new BoxDecoration(
+                          color: Color.fromRGBO(240, 240, 253, 1),
+                          image: DecorationImage(
+                            image: AssetImage('asset/img/pastor.jpg'),
+                            fit: BoxFit.cover,
                           ),
                         ),
-                      )
+                      ),
+                      Container(
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Pastorale(),
+                                ));
+                          },
+                          child: Container(
+                            color: Color.fromARGB(220, 0, 0, 0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Center(
+                                  child: Container(
+                                    height: 60,
+                                    child: Icon(
+                                      Icons.person_outline_rounded,
+                                      size: 60,
+                                      color: Colors.green.shade200,
+                                    ),
+                                  ),
+                                ),
+                                Center(
+                                  child: Text(
+                                    "Corps Pastorale",
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.green.shade200),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
                     ],
-                  ))),
-              InkWell(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => MapsView(),
-                        ));
-                  },
-                  splashColor: Colors.green,
-                  child: Center(
-                      child: Column(
-                    mainAxisSize: MainAxisSize.min,
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(0),
+                  child: Stack(
                     children: [
                       Container(
-                        height: 200,
-                        width: double.infinity,
-                        color: Colors.red.shade300,
-                        child: Center(
-                          child: ListView(
-                            children: [
-                              Container(
-                                //local_fire_department_sharp
-                                height: 150,
-                                child: Icon(
-                                  Icons.map_rounded,
-                                  size: 150,
-                                  color: Colors.white,
-                                ),
-                              ),
-                              Center(
-                                child: Text(
-                                  "Retrouve-Nous",
-                                  style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white),
-                                ),
-                              )
-                            ],
+                        decoration: new BoxDecoration(
+                          color: Color.fromRGBO(240, 240, 253, 1),
+                          image: DecorationImage(
+                            image: AssetImage('asset/img/find-us.jpg'),
+                            fit: BoxFit.cover,
                           ),
                         ),
-                      )
+                      ),
+                      Container(
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => MapsView(),
+                                ));
+                          },
+                          child: Container(
+                            color: Color.fromARGB(220, 0, 0, 0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Center(
+                                  child: Container(
+                                    height: 60,
+                                    child: Icon(
+                                      Icons.location_on_outlined,
+                                      size: 60,
+                                      color: Colors.red.shade200,
+                                    ),
+                                  ),
+                                ),
+                                Center(
+                                  child: Text(
+                                    "Retrouvez-Nous",
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.red.shade200),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
                     ],
-                  ))),
+                  ),
+                ),
+              ),
             ],
           ),
         ));

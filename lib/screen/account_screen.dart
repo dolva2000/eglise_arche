@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-class AffermissementScreen extends StatefulWidget {
+class AccountView extends StatefulWidget {
   @override
-  _AffermissementState createState() => _AffermissementState();
+  _AccountViewState createState() => _AccountViewState();
 }
 
-class _AffermissementState extends State<AffermissementScreen> {
+class _AccountViewState extends State<AccountView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Affermissements'),
+        title: Text('Mon Compte'),
         //backgroundColor: Colors.indigo,
       ),
       body: Container(),

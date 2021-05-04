@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-class AffermissementScreen extends StatefulWidget {
+class AboutView extends StatefulWidget {
   @override
-  _AffermissementState createState() => _AffermissementState();
+  _AboutViewState createState() => _AboutViewState();
 }
 
-class _AffermissementState extends State<AffermissementScreen> {
+class _AboutViewState extends State<AboutView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Affermissements'),
+        title: Text('A Propos'),
         //backgroundColor: Colors.indigo,
       ),
       body: Container(),

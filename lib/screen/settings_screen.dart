@@ -11,14 +11,9 @@ class _SettingsState extends State<SettingsScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Paramètres'),
-        backgroundColor: Colors.yellow.shade800,
+        //backgroundColor: Colors.indigo,
       ),
-      body: Container(
-        decoration: new BoxDecoration(
-            color: Color.fromRGBO(240, 240, 253, 1),
-            image: DecorationImage(
-                image: AssetImage('asset/img/bg2.jpg'), fit: BoxFit.cover)),
-      ),
+      body: Container(),
     );
   }
 }

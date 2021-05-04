@@ -1,7 +1,6 @@
-import 'package:apparche/programme/nothifaction.dart';
-import 'package:apparche/programme/programme.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/services.dart';
 import 'package:apparche/screen/screenplash.dart';
 import 'package:apparche/utils/services.dart';
 import 'package:apparche/models/videos_list.dart';
@@ -21,10 +20,14 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   print("Handling a background message: ${message.messageId}");
 }
 
-Future<void> main() async {
-  
+void main() {
+    WidgetsFlutterBinding.ensureInitialized(); 
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
-  runApp(MyApp());
+
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown])
+  .then((_) {
+runApp(MyApp());
+});
 }
 
 class MyApp extends StatelessWidget {
@@ -35,8 +38,7 @@ class MyApp extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    FlutterStatusbarManager.setColor(Colors.yellow.shade800);
-    FlutterStatusbarManager.setStyle(StatusBarStyle.LIGHT_CONTENT);
+ 
     return PersistedAppState(
       storage: JsonFileStorage(initialData: {
         'video': '',
@@ -45,7 +47,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
           theme: ThemeData(
-            primarySwatch: Colors.blue,
+            primarySwatch: Colors.indigo,
           ),
           home: Homepage()),
     );
