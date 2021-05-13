@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:apparche/information/information.dart';
+import 'package:apparche/programme/nothifaction.dart';
 import 'package:apparche/programme/programme.dart';
 import 'package:apparche/youtube/home_screen.dart';
 import 'package:apparche/screen/drawer.dart';
@@ -25,6 +26,8 @@ class _HomeState extends State<Home> {
     return Color.fromARGB(
         100, random.nextInt(256), random.nextInt(256), random.nextInt(256));
   }
+  
+
 
   @override
   Widget build(BuildContext context) {
@@ -288,10 +291,14 @@ class _HomeState extends State<Home> {
 
                       //la fin
                     ],
+                    
                   ),
+                  
                 ),
               ),
             ),
+        
+         
           ],
         ));
   }

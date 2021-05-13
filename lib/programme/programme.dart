@@ -4,11 +4,22 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 class Programme extends StatefulWidget {
+   String payload;
+
+  Programme({
+    @required this.payload,
+  });
   @override
   _ProgrammeState createState() => _ProgrammeState();
 }
 
 class _ProgrammeState extends State<Programme> {
+  @override
+  void initState() {
+    super.initState();
+    
+    
+  }
   @override
   int _current = 0;
   final list = [

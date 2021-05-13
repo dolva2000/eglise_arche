@@ -3,6 +3,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
 import 'package:apparche/screen/screenplash.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:state_persistence/state_persistence.dart';
 //import 'package:cloud_firestore/cloud_firestore.dart';
 //import 'package:flutter/services.dart';
@@ -27,7 +29,11 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+  // This widget is the root of your a
+
+
+  
+  
   @override
   Widget build(BuildContext context) {
     return PersistedAppState(
@@ -42,5 +48,8 @@ class MyApp extends StatelessWidget {
           ),
           home: Homepage()),
     );
-  }
+
+
+
+}
 }
