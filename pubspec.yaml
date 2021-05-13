@@ -40,6 +40,7 @@ dependencies:
   flutter_statusbar_manager: ^2.0.0
   flutter_cached_pdfview: ^0.4.0-nullsafety
   google_maps_flutter: ^2.0.3
+  grouped_list: ^4.0.0
 
 dev_dependencies:
   flutter_test:
@@ -76,6 +77,7 @@ flutter:
     - asset/img/par.png
     - asset/img/par.png
     - asset/img/hhh.png
+    - asset/img/logo.png
     - asset/img/pasteur.png
     - asset/img/dimanche.jpg
     - asset/img/Facebook.png

@@ -5,10 +5,12 @@ import 'package:apparche/screen/settings_screen.dart';
 import 'package:apparche/screen/events_screen.dart';
 import 'package:apparche/screen/account_screen.dart';
 import 'package:apparche/programme/programme.dart';
+//import 'package:flutter_statusbar_manager/flutter_statusbar_manager.dart';
 
 class Menu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    //FlutterStatusbarManager.setColor(Colors.indigo);
     return Drawer(
         elevation: 65,
         child: new ListView(
@@ -44,6 +46,8 @@ class Menu extends StatelessWidget {
                         ),
                         Text(
                           "dolvabolokondi@gmail.com",
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
                           style: TextStyle(
                               fontSize: 13,
                               color: Colors.white,

@@ -171,9 +171,10 @@ class _HomeScreenState extends State<HomeScreen>
                                           ImageChunkEvent loadingProgress) {
                                         if (loadingProgress == null)
                                           return child;
-                                        return Container(                         
+                                        return Container(
                                           width: 150,
-                                          child:Image.asset("asset/img/hhh.png"),
+                                          child:
+                                              Image.asset("asset/img/hhh.png"),
                                         );
                                       },
                                     ),

@@ -9,6 +9,7 @@ import 'package:apparche/screen/events_screen.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'dart:math';
 import 'package:flutter_statusbar_manager/flutter_statusbar_manager.dart';
+
 // ...
 FirebaseMessaging messaging = FirebaseMessaging.instance;
 
@@ -18,7 +19,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-
   Color generateRandomColor3() {
     Random random = Random();
 
@@ -28,7 +28,7 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    
+    FlutterStatusbarManager.setStyle(StatusBarStyle.LIGHT_CONTENT);
     return Scaffold(
         drawer: Menu(),
         appBar: AppBar(
