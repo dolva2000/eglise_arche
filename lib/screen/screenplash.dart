@@ -28,20 +28,15 @@ class _HomepageState extends State<Homepage> {
     return Scaffold(
         //backgroundColor: Colors.indigo,
         body: Stack(
-          children: <Widget>[
-            new Container(
-              decoration: new BoxDecoration(
-                  image: new DecorationImage(
-                image: new AssetImage("asset/img/splashscreen.jpg"),
-                fit: BoxFit.cover,
-              )),
-              
-              
-            ),
-            
-  
- 
-          ],
-        ));
+      children: <Widget>[
+        new Container(
+          decoration: new BoxDecoration(
+              image: new DecorationImage(
+            image: new AssetImage("asset/img/splashscreen.jpg"),
+            fit: BoxFit.cover,
+          )),
+        )
+      ],
+    ));
   }
 }

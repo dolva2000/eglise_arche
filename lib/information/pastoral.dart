@@ -32,7 +32,7 @@ class _PastoraleState extends State<Pastorale> {
                       width: double.infinity,
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.all(Radius.circular(30.0)),
+                        borderRadius: BorderRadius.all(Radius.circular(50.0)),
                         boxShadow: [
                           BoxShadow(
                               color: Colors.black.withOpacity(0.3),

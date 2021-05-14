@@ -33,61 +33,6 @@ class _InformationState extends State<Information> {
                         decoration: new BoxDecoration(
                           color: Color.fromRGBO(240, 240, 253, 1),
                           image: DecorationImage(
-                            image:
-                                AssetImage('asset/img/church-vision.jpg'),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        child: InkWell(
-                          splashColor: Colors.green,
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => Vision(),
-                                ));
-                          },
-                          child: Container(
-                            color: Color.fromARGB(220, 0, 0, 0),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Center(
-                                  child: Container(
-                                    height: 60,
-                                    child: Image.asset("asset/img/hhh.png"),
-                                  ),
-                                ),
-                                Center(
-                                  child: Text(
-                                    "Vision et Historique",
-                                    style: TextStyle(
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.yellow.shade200),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.only(bottom: 0.5),
-                  child: Stack(
-                    children: [
-                      Container(
-                        decoration: new BoxDecoration(
-                          color: Color.fromRGBO(240, 240, 253, 1),
-                          image: DecorationImage(
                             image: AssetImage('asset/img/pastor.jpg'),
                             fit: BoxFit.cover,
                           ),
@@ -103,7 +48,7 @@ class _InformationState extends State<Information> {
                                 ));
                           },
                           child: Container(
-                            color: Color.fromARGB(220, 0, 0, 0),
+                            color: Color.fromARGB(200, 0, 0, 0),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
@@ -125,6 +70,60 @@ class _InformationState extends State<Information> {
                                         fontSize: 20,
                                         fontWeight: FontWeight.bold,
                                         color: Colors.green.shade200),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 0.5),
+                  child: Stack(
+                    children: [
+                      Container(
+                        decoration: new BoxDecoration(
+                          color: Color.fromRGBO(240, 240, 253, 1),
+                          image: DecorationImage(
+                            image: AssetImage('asset/img/church-vision.jpg'),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                      Container(
+                        child: InkWell(
+                          splashColor: Colors.green,
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Vision(),
+                                ));
+                          },
+                          child: Container(
+                            color: Color.fromARGB(200, 0, 0, 0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Center(
+                                  child: Container(
+                                    height: 60,
+                                    child: Image.asset("asset/img/hhh.png"),
+                                  ),
+                                ),
+                                Center(
+                                  child: Text(
+                                    "Vision et Historique",
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,)
                                   ),
                                 ),
                               ],
@@ -160,7 +159,7 @@ class _InformationState extends State<Information> {
                                 ));
                           },
                           child: Container(
-                            color: Color.fromARGB(220, 0, 0, 0),
+                            color: Color.fromARGB(200, 0, 0, 0),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
