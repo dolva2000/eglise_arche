@@ -1,3 +1,5 @@
+import 'package:apparche/pages/edit_profile.dart';
+import 'package:apparche/pages/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:apparche/information/information.dart';
 import 'package:apparche/programme/nothifaction.dart';
@@ -8,6 +10,7 @@ import 'package:apparche/screen/affermissement_screen.dart';
 import 'package:apparche/screen/settings_screen.dart';
 import 'package:apparche/screen/events_screen.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'dart:math';
 import 'package:flutter_statusbar_manager/flutter_statusbar_manager.dart';
 // ...
@@ -26,7 +29,8 @@ class _HomeState extends State<Home> {
     return Color.fromARGB(
         100, random.nextInt(256), random.nextInt(256), random.nextInt(256));
   }
-  
+
+
 
 
   @override
@@ -229,7 +233,7 @@ class _HomeState extends State<Home> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => SettingsScreen(),
+                                    builder: (context) => MyAppp(),
                                   ));
                             },
                             splashColor: Colors.green,
@@ -298,7 +302,7 @@ class _HomeState extends State<Home> {
               ),
             ),
         
-         
+          
           ],
         ));
   }

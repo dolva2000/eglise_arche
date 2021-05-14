@@ -44,6 +44,8 @@ dependencies:
   path_provider: ^2.0.1
   android_alarm_manager: ^2.0.0
   shared_preferences: ^2.0.5
+  flutter_settings_screens: ^0.2.2+1
+  flutter_icons: ^1.1.0
 
 dev_dependencies:
   flutter_test:
@@ -83,9 +85,11 @@ flutter:
     - asset/img/pasteur.png
     - asset/img/dimanche.jpg
     - asset/img/Facebook.png
+    - asset/img/background.jpg
     - asset/img/undraw_online_articles_79ff.png
     - asset/img/loading.png
     - asset/pdf/Historique.pdf
+    - asset/pdf/AFFERMISSEMENTS.pdf
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
   # For details regarding adding assets from package dependencies, see

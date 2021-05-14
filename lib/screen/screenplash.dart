@@ -1,6 +1,10 @@
+import 'package:apparche/programme/programme.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:apparche/screen//home.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+
+import 'alerte.dart';
 
 class Homepage extends StatefulWidget {
   @override
@@ -8,16 +12,18 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
+  
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 5), () {
+    Timer(Duration(seconds: 10), () {
       Navigator.of(context)
-          .pushReplacement(MaterialPageRoute(builder: (context) => Home()));
+          .pushReplacement(MaterialPageRoute(builder: (context) => AlerteNothification()));
     });
   }
 
-  @override
+
+  
   Widget build(BuildContext context) {
     return Scaffold(
         //backgroundColor: Colors.indigo,
@@ -29,7 +35,12 @@ class _HomepageState extends State<Homepage> {
                 image: new AssetImage("asset/img/splashscreen.jpg"),
                 fit: BoxFit.cover,
               )),
-            )
+              
+              
+            ),
+            
+  
+ 
           ],
         ));
   }

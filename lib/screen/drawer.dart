@@ -6,6 +6,8 @@ import 'package:apparche/screen/events_screen.dart';
 import 'package:apparche/screen/account_screen.dart';
 import 'package:apparche/programme/programme.dart';
 
+import 'login_signup.dart';
+
 class Menu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -92,7 +94,7 @@ class Menu extends StatelessWidget {
             InkWell(
               onTap: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => AccountView()));
+                    MaterialPageRoute(builder: (context) => LoginSignupScreen()));
               },
               child: ListTile(
                   title: Text("Mon Compte"),
@@ -113,7 +115,7 @@ class Menu extends StatelessWidget {
             InkWell(
               onTap: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => SettingsScreen()));
+                    MaterialPageRoute(builder: (context) => Setting()));
               },
               child: ListTile(
                   title: Text("Paramètre"),

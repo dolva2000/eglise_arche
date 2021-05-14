@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class SettingsScreen extends StatefulWidget {
+class Setting extends StatefulWidget {
   @override
-  _SettingsState createState() => _SettingsState();
+  _SettingState createState() => _SettingState();
 }
 
-class _SettingsState extends State<SettingsScreen> {
+class _SettingState extends State<Setting> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,7 +13,12 @@ class _SettingsState extends State<SettingsScreen> {
         title: Text('Paramètres'),
         //backgroundColor: Colors.indigo,
       ),
-      body: Container(),
+      body:ElevatedButton(
+        child: Text("Security"),
+        onPressed: () {
+         
+        },
+      )
     );
   }
 }
