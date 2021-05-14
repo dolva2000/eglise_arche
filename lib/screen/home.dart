@@ -233,7 +233,7 @@ class _HomeState extends State<Home> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => MyAppp(),
+                                    builder: (context) => SettingsPage(),
                                   ));
                             },
                             splashColor: Colors.green,
