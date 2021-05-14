@@ -48,7 +48,7 @@ class _HomeScreenState extends State<HomeScreen>
       try {
         VideosList tempVideosList = videosListFromJson(tempVideosListJson);
         _data['video'] = tempVideosListJson;
-        //_videosList.videos = tempVideosList.videos;
+        _videosList.videos = tempVideosList.videos;
         setState(() {
           _hasNetwortVideos = true;
           _nextPageToken = tempVideosList.nextPageToken;

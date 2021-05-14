@@ -14,7 +14,7 @@ class _WebViewPageState extends State<WebViewPage> {
   @override
   Widget build(BuildContext context) {
     return WebviewScaffold(
-      url: 'https://anaima.vercel.app/',
+      url: 'https://cef-arche-makala.vercel.app/',
       mediaPlaybackRequiresUserGesture: false,
       appBar: AppBar(
         //backgroundColor: Colors.indigo,
