@@ -19,7 +19,10 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   print("Handling a background message: ${message.messageId}");
 }
 
-void main() async {
+FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+    FlutterLocalNotificationsPlugin();
+
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
   SystemChrome.setPreferredOrientations(
@@ -31,9 +34,6 @@ void main() async {
 class MyApp extends StatelessWidget {
   // This widget is the root of your a
 
-
-  
-  
   @override
   Widget build(BuildContext context) {
     return PersistedAppState(
@@ -48,8 +48,5 @@ class MyApp extends StatelessWidget {
           ),
           home: Homepage()),
     );
-
-
-
-}
+  }
 }
