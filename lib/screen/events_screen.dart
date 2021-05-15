@@ -21,6 +21,7 @@ class _WebViewPageState extends State<WebViewPage> {
         title: const Text('Actualités'),
       ),
       appCacheEnabled: true,
+      
       withZoom: true,
       withLocalStorage: true,
       withLocalUrl: true,

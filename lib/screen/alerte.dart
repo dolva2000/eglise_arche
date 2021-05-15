@@ -12,26 +12,20 @@ class AlerteNothification extends StatefulWidget {
 }
 
 class _AlerteNothificationState extends State<AlerteNothification> {
-
-   
-
-     FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+  FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
       FlutterLocalNotificationsPlugin();
- 
 
   @override
   void initState() {
     super.initState();
     var initializationSettingsAndroid =
-        AndroidInitializationSettings('launch_image');
+        AndroidInitializationSettings('ic_launcher');
     var initializationSettingsIOs = IOSInitializationSettings();
     var initSetttings = InitializationSettings(
         android: initializationSettingsAndroid, iOS: initializationSettingsIOs);
 
     flutterLocalNotificationsPlugin.initialize(initSetttings,
         onSelectNotification: onSelectNotification);
-    
-     
   }
 
   Future onSelectNotification(String payload) {
@@ -41,41 +35,41 @@ class _AlerteNothificationState extends State<AlerteNothification> {
       );
     }));
   }
+
   bool exe = true;
+
   @override
   Widget build(BuildContext context) {
-    return   AlertDialog(
-      
-        title: Text('Alert !'),
-        
-        content: SingleChildScrollView(
-          child: ListBody(
-            children: <Widget>[
-              Text('Veuillez activer les notifications'),
-              Text('Pour être alerté de nos differents programmes'),
-            ],
-          ),
+    return AlertDialog(
+      title: Text('Alert !'),
+      content: SingleChildScrollView(
+        child: ListBody(
+          children: <Widget>[
+            Text('Veuillez activer les notifications'),
+            Text('Pour être alerté de nos differents programmes'),
+          ],
         ),
-        actions: <Widget>[
-          TextButton(
-            child: Text('Accepter'),
-            onPressed: () 
-               async {
-                await flutterLocalNotificationsPlugin.periodicallyShow(0, 'Rappel', 'Nos cultes le mardi et jeudi 17h et le dimanche à 7h', RepeatInterval.everyMinute, const NotificationDetails(
-            android: AndroidNotificationDetails(
-              'your channel id',
-              'your channel name', 
-              'your channel description')),);
-              Navigator.of(context).pushAndRemoveUntil(
-    MaterialPageRoute(builder: (BuildContext context) => Home()),
-    ModalRoute.withName('/'),
-  ); 
-
-              },
-         
-          ),
-        ],
-        
-      );
+      ),
+      actions: <Widget>[
+        TextButton(
+          child: Text('Accepter'),
+          onPressed: () async {
+            await flutterLocalNotificationsPlugin.periodicallyShow(
+              0,
+              'Arche Makala: Nos Culte mardi et jeudi 16h',
+              "et dimanche 6h A 9h & 9h A 13h ",
+              RepeatInterval.daily,
+              const NotificationDetails(
+                  android: AndroidNotificationDetails('your channel id',
+                      'your channel name', 'your channel description', priority: Priority.max, fullScreenIntent: true)),
+            );
+            Navigator.of(context).pushAndRemoveUntil(
+              MaterialPageRoute(builder: (BuildContext context) => Home()),
+              ModalRoute.withName('/'),
+            );
+          },
+        ),
+      ],
+    );
   }
 }

@@ -1,7 +1,8 @@
+import 'package:apparche/pages/settings.dart';
+import 'package:apparche/screen/offrande.dart';
 import 'package:flutter/material.dart';
 import 'package:apparche/screen/contact.dart';
 import 'package:apparche/screen/about_screen.dart';
-import 'package:apparche/screen/settings_screen.dart';
 import 'package:apparche/screen/events_screen.dart';
 import 'package:apparche/screen/account_screen.dart';
 import 'package:apparche/programme/programme.dart';
@@ -90,7 +91,8 @@ class Menu extends StatelessWidget {
                   leading: Icon(Icons.event_note, color: Colors.indigo)),
             ),
             InkWell(
-              onTap: () {},
+              onTap: () { Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Offrande()));},
               child: ListTile(
                   title: Text("Mes offrandes"),
                   leading: Icon(Icons.money_outlined, color: Colors.indigo)),
@@ -119,7 +121,7 @@ class Menu extends StatelessWidget {
             InkWell(
               onTap: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Setting()));
+                    MaterialPageRoute(builder: (context) => SettingsPage()));
               },
               child: ListTile(
                   title: Text("Paramètre"),

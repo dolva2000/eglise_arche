@@ -1,6 +1,4 @@
-import 'package:apparche/pages/settings.dart';
 import 'package:flutter/material.dart';
-
 
 class SettingsUI extends StatelessWidget {
   @override
@@ -39,10 +37,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
               Icons.settings,
               color: Colors.green,
             ),
-            onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) => SettingsPage()));
-            },
+           
+            
           ),
         ],
       ),
