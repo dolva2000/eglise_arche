@@ -57,7 +57,7 @@ class _AffermissementState extends State<Affermissement> {
                         )));
           },
           child: ListTile(
-              title: Text("Leçon 1"),
+              title: Text("Leçon 1: La Salut"),
               leading: Icon(
                 Icons.event_note,
                 color: Colors.indigo,
@@ -73,7 +73,7 @@ class _AffermissementState extends State<Affermissement> {
                         )));
           },
           child: ListTile(
-              title: Text("Leçon 2"),
+              title: Text("Leçon 2: La Croissance dans la foi"),
               leading: Icon(Icons.event_note, color: Colors.indigo)),
         ),
         InkWell(
@@ -86,7 +86,7 @@ class _AffermissementState extends State<Affermissement> {
                         )));
           },
           child: ListTile(
-              title: Text("Leçon 3"),
+              title: Text("Leçon 3: L'assurance du salut"),
               leading: Icon(Icons.event_note, color: Colors.indigo)),
         ),
         InkWell(
@@ -99,13 +99,13 @@ class _AffermissementState extends State<Affermissement> {
                         )));
           },
           child: ListTile(
-              title: Text("Leçon 4"),
+              title: Text("Leçon 4: Le Saint-esprit"),
               leading: Icon(Icons.event_note, color: Colors.indigo)),
         ),
         InkWell(
           onTap: () {},
           child: ListTile(
-              title: Text("Leçon 5"),
+              title: Text("Leçon 5: L'heritage du salut"),
               leading: Icon(Icons.event_note, color: Colors.indigo)),
         ),
         InkWell(
@@ -118,7 +118,7 @@ class _AffermissementState extends State<Affermissement> {
                         )));
           },
           child: ListTile(
-              title: Text("Leçon 6"),
+              title: Text("Leçon 6: La Foi"),
               leading: Icon(Icons.event_note, color: Colors.indigo)),
         ),
         InkWell(
@@ -131,7 +131,7 @@ class _AffermissementState extends State<Affermissement> {
                         )));
           },
           child: ListTile(
-              title: Text("Leçon 7"),
+              title: Text("Leçon 7: Meditation"),
               leading: Icon(
                 Icons.event_note,
                 color: Colors.indigo,
@@ -147,7 +147,7 @@ class _AffermissementState extends State<Affermissement> {
                         )));
           },
           child: ListTile(
-              title: Text("leçon 8"),
+              title: Text("leçon 8: Les Cieux"),
               leading: Icon(
                 Icons.event_note,
                 color: Colors.indigo,

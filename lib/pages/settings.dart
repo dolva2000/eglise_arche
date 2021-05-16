@@ -52,7 +52,7 @@ class _SettingsPageState extends State<SettingsPage> {
         child: ListView(
           children: [
             Text(
-              "Settings",
+              "Parametre",
               style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
             ),
             SizedBox(
@@ -61,14 +61,14 @@ class _SettingsPageState extends State<SettingsPage> {
             Row(
               children: [
                 Icon(
-                  Icons.person,
+                  Icons.share,
                   color: Colors.green,
                 ),
                 SizedBox(
                   width: 8,
                 ),
                 Text(
-                  "Account",
+                  "Evaluer et Partager",
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ],
@@ -80,25 +80,24 @@ class _SettingsPageState extends State<SettingsPage> {
             SizedBox(
               height: 10,
             ),
-            buildAccountOptionRow(context, "Change password"),
-            buildAccountOptionRow(context, "Content settings"),
-            buildAccountOptionRow(context, "Social"),
-            buildAccountOptionRow(context, "Language"),
-            buildAccountOptionRow(context, "Privacy and security"),
+            buildAccountOptionRow(context, "Evaluer l'application","",""),
+            buildAccountOptionRow(context, "Partager l'application","",""),
+           
+            Divider(),
             SizedBox(
               height: 40,
             ),
             Row(
               children: [
                 Icon(
-                  Icons.volume_up_outlined,
+                  Icons.security,
                   color: Colors.green,
                 ),
                 SizedBox(
                   width: 8,
                 ),
                 Text(
-                  "Notifications",
+                  "Aide et Security ",
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ],
@@ -110,64 +109,23 @@ class _SettingsPageState extends State<SettingsPage> {
             SizedBox(
               height: 10,
             ),
-            buildNotificationOptionRow("New for you", true),
-            buildNotificationOptionRow("Account activity", true),
-            buildNotificationOptionRow("Opportunity", false),
+            buildAccountOptionRow(context, "politique de confidentialité","ne pas encore disponible",""),
+            buildAccountOptionRow(context, "condition d'utilisation","ne pas encore disponible",""),
+            buildAccountOptionRow(context, "Aide","Veuillez contatez les administrateur",""),
+            buildAccountOptionRow(context, "Infos de l'application","la version de l'application"," est de 1.0.1"),
             SizedBox(
               height: 50,
             ),
-            Center(
-              child: OutlineButton(
-                padding: EdgeInsets.symmetric(horizontal: 40),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20)),
-                onLongPress: () {},
-                onPressed: () async {
-                  await flutterLocalNotificationsPlugin.periodicallyShow(
-                    0,
-                    'title',
-                    'body',
-                    RepeatInterval.everyMinute,
-                    const NotificationDetails(
-                        android: AndroidNotificationDetails('your channel id',
-                            'your channel name', 'your channel description')),
-                  );
-
-                  Navigator.pop(context);
-                },
-                child: Text("SIGN OUT",
-                    style: TextStyle(
-                        fontSize: 16, letterSpacing: 2.2, color: Colors.black)),
-              ),
-            )
+            
           ],
         ),
       ),
     );
   }
 
-  Row buildNotificationOptionRow(String title, bool isActive) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          title,
-          style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.w500,
-              color: Colors.grey[600]),
-        ),
-        Transform.scale(
-            scale: 0.7,
-            child: CupertinoSwitch(
-              value: isActive,
-              onChanged: (bool val) {},
-            ))
-      ],
-    );
-  }
+ 
 
-  GestureDetector buildAccountOptionRow(BuildContext context, String title) {
+  GestureDetector buildAccountOptionRow(BuildContext context, String title,String contenue,String contenue1 ) {
     return GestureDetector(
       onTap: () {
         showDialog(
@@ -178,13 +136,12 @@ class _SettingsPageState extends State<SettingsPage> {
                 content: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text("Option 1"),
-                    Text("Option 2"),
-                    Text("Option 3"),
+                    Text(contenue),
+                    Text(contenue1),
                   ],
                 ),
                 actions: [
-                  FlatButton(
+                  TextButton(
                       onPressed: () {
                         Navigator.of(context).pop();
                       },

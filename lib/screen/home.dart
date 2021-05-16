@@ -1,13 +1,10 @@
-import 'package:apparche/pages/edit_profile.dart';
 import 'package:apparche/pages/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:apparche/information/information.dart';
-import 'package:apparche/programme/nothifaction.dart';
 import 'package:apparche/programme/programme.dart';
 import 'package:apparche/youtube/home_screen.dart';
 import 'package:apparche/screen/drawer.dart';
 import 'package:apparche/screen/affermissement_screen.dart';
-import 'package:apparche/screen/settings_screen.dart';
 import 'package:apparche/screen/events_screen.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';

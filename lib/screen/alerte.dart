@@ -18,7 +18,8 @@ class _AlerteNothificationState extends State<AlerteNothification> {
   @override
   void initState() {
     super.initState();
-    var initializationSettingsAndroid = AndroidInitializationSettings('ic_launcher');
+    var initializationSettingsAndroid =
+        AndroidInitializationSettings('ic_launcher');
     var initializationSettingsIOs = IOSInitializationSettings();
     var initSetttings = InitializationSettings(
         android: initializationSettingsAndroid, iOS: initializationSettingsIOs);
@@ -36,10 +37,10 @@ class _AlerteNothificationState extends State<AlerteNothification> {
   }
 
   bool exe = true;
+
   @override
   Widget build(BuildContext context) {
-    return 
-    AlertDialog(
+    return AlertDialog(
       title: Text('Alert !'),
       content: SingleChildScrollView(
         child: ListBody(
@@ -55,13 +56,12 @@ class _AlerteNothificationState extends State<AlerteNothification> {
           onPressed: () async {
             await flutterLocalNotificationsPlugin.periodicallyShow(
               0,
-              'Rappel',
-              'Nos cultes le mardi et jeudi 17h et le dimanche à 7h',
-              RepeatInterval.everyMinute,
+              'Arche Makala: Nos Culte mardi et jeudi 16h',
+              "et dimanche 6h A 9h & 9h A 13h ",
+              RepeatInterval.daily,
               const NotificationDetails(
-                android: AndroidNotificationDetails('your channel id',
-                    'your channel name', 'your channel description'),
-              ),
+                  android: AndroidNotificationDetails('your channel id',
+                      'your channel name', 'your channel description', priority: Priority.max, fullScreenIntent: true)),
             );
             Navigator.of(context).pushAndRemoveUntil(
               MaterialPageRoute(builder: (BuildContext context) => Home()),
