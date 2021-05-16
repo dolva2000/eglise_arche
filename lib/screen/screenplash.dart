@@ -12,18 +12,15 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
-  
   @override
   void initState() {
     super.initState();
     Timer(Duration(seconds: 10), () {
-      Navigator.of(context)
-          .pushReplacement(MaterialPageRoute(builder: (context) => AlerteNothification()));
+      Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => AlerteNothification()));
     });
   }
 
-
-  
   Widget build(BuildContext context) {
     return Scaffold(
         //backgroundColor: Colors.indigo,

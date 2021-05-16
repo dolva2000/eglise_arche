@@ -12,30 +12,31 @@ class AffermissementScreen extends StatelessWidget {
         length: 2,
         child: Scaffold(
           appBar: AppBar(
-            backgroundColor:Colors.indigo,
+            backgroundColor: Colors.indigo,
             bottom: TabBar(
               tabs: [
-                Tab(child: Text("Affermissement"),),
-                Tab(child: Text("Bible"),),
-                
+                Tab(
+                  child: Text("Affermissement"),
+                ),
+                Tab(
+                  child: Text("Bible"),
+                ),
               ],
             ),
             title: Text('Affermissement'),
           ),
           body: TabBarView(
             children: [
-              Affermissement()
-              ,
+              Affermissement(),
               Icon(Icons.directions_transit),
-             
             ],
           ),
         ),
       ),
-      
     );
   }
 }
+
 class Affermissement extends StatefulWidget {
   @override
   _AffermissementState createState() => _AffermissementState();
@@ -45,111 +46,113 @@ class _AffermissementState extends State<Affermissement> {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      
       children: [
-         
-            InkWell(
-              onTap: () {
-                Navigator.push(
-              context,
-              MaterialPageRoute<dynamic>(
-                builder: (_) => PDFViewerFromAsset(
-                  pdfAssetPath: 'asset/pdf/AFFERMISSEMENTS.pdf',
-                )));
-                    },
-              child: ListTile(
-                  title: Text("Leçon 1"),
-                  leading: Icon(
-                   Icons.event_note,
-                    color: Colors.indigo,
-                  )),
-            ),
-            InkWell(
-              onTap: () {
-                 Navigator.push(
-              context,
-              MaterialPageRoute<dynamic>(
-                builder: (_) => PDFViewerFromAsset(
-                  pdfAssetPath: 'asset/pdf/AFFERMISSEMENTS.pdf',)));
-                 
-              },
-              child: ListTile(
-                  title: Text("Leçon 2"),
-                  leading:
-                      Icon(Icons.event_note, color: Colors.indigo)),
-            ),
-            InkWell(
-              onTap: () {
-                 Navigator.push(
-              context,
-              MaterialPageRoute<dynamic>(
-                builder: (_) => PDFViewerFromAsset(
-                  pdfAssetPath: 'asset/pdf/AFFERMISSEMENTS.pdf',)));
-               
-              },
-              child: ListTile(
-                  title: Text("Leçon 3"),
-                  leading: Icon(Icons.event_note, color: Colors.indigo)),
-            ),
-            InkWell(
-              onTap: () {
-                 Navigator.push(
-              context,
-              MaterialPageRoute<dynamic>(
-                builder: (_) => PDFViewerFromAsset(
-                  pdfAssetPath: 'asset/pdf/AFFERMISSEMENTS.pdf',)));
-              },
-              child: ListTile(
-                  title: Text("Leçon 4"),
-                  leading: Icon(Icons.event_note, color: Colors.indigo)),
-            ),
-            InkWell(
-              onTap: () {
-               },
-              child: ListTile(
-                  title: Text("Leçon 5"),
-                  leading: Icon(Icons.event_note,
-                      color: Colors.indigo)),
-            ),
-            InkWell(
-              onTap: () {
-                 Navigator.push(
-              context,
-              MaterialPageRoute<dynamic>(
-                builder: (_) => PDFViewerFromAsset(
-                  pdfAssetPath: 'asset/pdf/AFFERMISSEMENTS.pdf',)));
-               },
-              child: ListTile(
-                  title: Text("Leçon 6"),
-                  leading:
-                      Icon(Icons.event_note, color: Colors.indigo)),
-            ),
-            
-            InkWell(
-              onTap: () {
-                 Navigator.push(
-              context,
-              MaterialPageRoute<dynamic>(
-                builder: (_) => PDFViewerFromAsset(
-                  pdfAssetPath: 'asset/pdf/AFFERMISSEMENTS.pdf',)));
-               },
-              child: ListTile(
-                  title: Text("Leçon 7"),
-                  leading: Icon(Icons.event_note,  color: Colors.indigo,)),
-            ),
-            InkWell(
-              onTap: () {
-                 Navigator.push(
-              context,
-              MaterialPageRoute<dynamic>(
-                builder: (_) => PDFViewerFromAsset(
-                  pdfAssetPath: 'asset/pdf/AFFERMISSEMENTS.pdf',)));
-               },
-              child: ListTile(
-                  title: Text("leçon 8"),
-                  leading: Icon(Icons.event_note, color: Colors.indigo,)),
-            ),
-       
+        InkWell(
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute<dynamic>(
+                    builder: (_) => PDFViewerFromAsset(
+                          pdfAssetPath: 'asset/pdf/AFFERMISSEMENTS.pdf',
+                        )));
+          },
+          child: ListTile(
+              title: Text("Leçon 1"),
+              leading: Icon(
+                Icons.event_note,
+                color: Colors.indigo,
+              )),
+        ),
+        InkWell(
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute<dynamic>(
+                    builder: (_) => PDFViewerFromAsset(
+                          pdfAssetPath: 'asset/pdf/AFFERMISSEMENTS.pdf',
+                        )));
+          },
+          child: ListTile(
+              title: Text("Leçon 2"),
+              leading: Icon(Icons.event_note, color: Colors.indigo)),
+        ),
+        InkWell(
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute<dynamic>(
+                    builder: (_) => PDFViewerFromAsset(
+                          pdfAssetPath: 'asset/pdf/AFFERMISSEMENTS.pdf',
+                        )));
+          },
+          child: ListTile(
+              title: Text("Leçon 3"),
+              leading: Icon(Icons.event_note, color: Colors.indigo)),
+        ),
+        InkWell(
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute<dynamic>(
+                    builder: (_) => PDFViewerFromAsset(
+                          pdfAssetPath: 'asset/pdf/AFFERMISSEMENTS.pdf',
+                        )));
+          },
+          child: ListTile(
+              title: Text("Leçon 4"),
+              leading: Icon(Icons.event_note, color: Colors.indigo)),
+        ),
+        InkWell(
+          onTap: () {},
+          child: ListTile(
+              title: Text("Leçon 5"),
+              leading: Icon(Icons.event_note, color: Colors.indigo)),
+        ),
+        InkWell(
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute<dynamic>(
+                    builder: (_) => PDFViewerFromAsset(
+                          pdfAssetPath: 'asset/pdf/AFFERMISSEMENTS.pdf',
+                        )));
+          },
+          child: ListTile(
+              title: Text("Leçon 6"),
+              leading: Icon(Icons.event_note, color: Colors.indigo)),
+        ),
+        InkWell(
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute<dynamic>(
+                    builder: (_) => PDFViewerFromAsset(
+                          pdfAssetPath: 'asset/pdf/AFFERMISSEMENTS.pdf',
+                        )));
+          },
+          child: ListTile(
+              title: Text("Leçon 7"),
+              leading: Icon(
+                Icons.event_note,
+                color: Colors.indigo,
+              )),
+        ),
+        InkWell(
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute<dynamic>(
+                    builder: (_) => PDFViewerFromAsset(
+                          pdfAssetPath: 'asset/pdf/AFFERMISSEMENTS.pdf',
+                        )));
+          },
+          child: ListTile(
+              title: Text("leçon 8"),
+              leading: Icon(
+                Icons.event_note,
+                color: Colors.indigo,
+              )),
+        ),
       ],
     );
   }

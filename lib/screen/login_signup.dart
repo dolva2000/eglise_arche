@@ -2,6 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:apparche/utils/palette.dart';
 
+import 'package:flutter_auth_ui/flutter_auth_ui.dart';
+
+import 'package:flutter/services.dart';
+import 'package:firebase_auth_ui/firebase_auth_ui.dart';
+import 'package:firebase_auth_ui/providers.dart';
+
 class LoginSignupScreen extends StatefulWidget {
   @override
   _LoginSignupScreenState createState() => _LoginSignupScreenState();
@@ -12,184 +18,128 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
   bool isMale = true;
   bool isRememberMe = false;
 
+  FirebaseUser _user;
+  String _error = '';
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
+    // User is null, initiate auth
+    print('pressed');
     return Scaffold(
       backgroundColor: Palette.backgroundColor,
-      body: Stack(
-        children: [
-          Positioned(
-            top: 0,
-            right: 0,
-            left: 0,
-            child: Container(
-              height: 300,
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage("asset/img/background.jpg"),
-                      fit: BoxFit.fill)),
-              child: Container(
-                padding: EdgeInsets.only(top: 90, left: 20),
-                color: Color(0xFF3b5999).withOpacity(.85),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    RichText(
-                      text: TextSpan(
-                          text: "Welcome to",
-                          style: TextStyle(
-                            fontSize: 25,
-                            letterSpacing: 2,
-                            color: Colors.yellow[700],
-                          ),
-                          children: [
-                            TextSpan(
-                              text: isSignupScreen ? " Rizona," : " Back,",
-                              style: TextStyle(
-                                fontSize: 25,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.yellow[700],
-                              ),
-                            )
-                          ]),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      isSignupScreen
-                          ? "Signup to Continue"
-                          : "Signin to Continue",
-                      style: TextStyle(
-                        letterSpacing: 1,
-                        color: Colors.white,
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            ),
-          ),
-          // Trick to add the shadow for the submit button
-          buildBottomHalfContainer(true),
-          //Main Contianer for Login and Signup
-          AnimatedPositioned(
-            duration: Duration(milliseconds: 700),
-            curve: Curves.bounceInOut,
-            top: isSignupScreen ? 200 : 230,
-            child: AnimatedContainer(
-              duration: Duration(milliseconds: 700),
-              curve: Curves.bounceInOut,
-              height: isSignupScreen ? 380 : 250,
-              padding: EdgeInsets.all(20),
-              width: MediaQuery.of(context).size.width - 40,
-              margin: EdgeInsets.symmetric(horizontal: 20),
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(15),
-                  boxShadow: [
-                    BoxShadow(
-                        color: Colors.black.withOpacity(0.3),
-                        blurRadius: 15,
-                        spreadRadius: 5),
-                  ]),
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              isSignupScreen = false;
-                            });
-                          },
-                          child: Column(
-                            children: [
-                              Text(
-                                "LOGIN",
-                                style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                    color: !isSignupScreen
-                                        ? Palette.activeColor
-                                        : Palette.textColor1),
-                              ),
-                              if (!isSignupScreen)
-                                Container(
-                                  margin: EdgeInsets.only(top: 3),
-                                  height: 2,
-                                  width: 55,
-                                  color: Colors.orange,
-                                )
-                            ],
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              isSignupScreen = true;
-                            });
-                          },
-                          child: Column(
-                            children: [
-                              Text(
-                                "SIGNUP",
-                                style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                    color: isSignupScreen
-                                        ? Palette.activeColor
-                                        : Palette.textColor1),
-                              ),
-                              if (isSignupScreen)
-                                Container(
-                                  margin: EdgeInsets.only(top: 3),
-                                  height: 2,
-                                  width: 55,
-                                  color: Colors.orange,
-                                )
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                    if (isSignupScreen) buildSignupSection(),
-                    if (!isSignupScreen) buildSigninSection()
-                  ],
-                ),
-              ),
-            ),
-          ),
-          // Trick to add the submit button
-          buildBottomHalfContainer(false),
-          // Bottom buttons
-          Positioned(
-            top: MediaQuery.of(context).size.height - 100,
-            right: 0,
-            left: 0,
-            child: Column(
-              children: [
-                Text(isSignupScreen ? "Or Signup with" : "Or Signin with"),
-                Container(
-                  margin: EdgeInsets.only(right: 20, left: 20, top: 15),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      buildTextButton(MaterialCommunityIcons.facebook,
-                          "Facebook", Palette.facebookColor),
-                      buildTextButton(MaterialCommunityIcons.google_plus,
-                          "Google", Palette.googleColor),
-                    ],
-                  ),
-                )
-              ],
-            ),
-          )
-        ],
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            _getMessage(),
+            Container(
+                margin: EdgeInsets.only(top: 10, bottom: 10),
+                child: TextButton(
+                  child: Text(_user != null ? 'Logout' : 'Login'),
+                  onPressed: _onActionTapped,
+                )),
+            _getErrorText(),
+            _user != null
+                ? FlatButton(
+                    child: Text('Delete'),
+                    textColor: Colors.red,
+                    onPressed: () => _deleteUser(),
+                  )
+                : Container()
+          ],
+        ),
       ),
     );
+  }
+
+  Widget _getMessage() {
+    if (_user != null) {
+      return Text(
+        'Logged in user is: ${_user.displayName ?? ''}',
+        style: TextStyle(
+          fontSize: 16,
+        ),
+      );
+    } else {
+      return Text(
+        'Tap the below button to Login',
+        style: TextStyle(
+          fontSize: 16,
+        ),
+      );
+    }
+  }
+
+  Widget _getErrorText() {
+    if (_error?.isNotEmpty == true) {
+      return Text(
+        _error,
+        style: TextStyle(
+          color: Colors.redAccent,
+          fontSize: 16,
+        ),
+      );
+    } else {
+      return Container();
+    }
+  }
+
+  void _deleteUser() async {
+    final result = await FirebaseAuthUi.instance().delete();
+    if (result) {
+      setState(() {
+        _user = null;
+      });
+    }
+  }
+
+  void _onActionTapped() {
+    print('pressed $_user');
+    if (_user == null) {
+      // User is null, initiate auth
+      print('pressed');
+      FirebaseAuthUi.instance().launchAuth([
+        // AuthProvider.email(),
+        // Google ,facebook, twitter and phone auth providers are commented because this example
+        // isn't configured to enable them. Please follow the README and uncomment
+        // them if you want to integrate them in your project.
+
+       // AuthProvider.google(),
+        //AuthProvider.facebook(),
+        // AuthProvider.twitter(),
+         AuthProvider.phone(),
+      ]).then((firebaseUser) {
+        setState(() {
+          _error = "";
+          _user = firebaseUser;
+        });
+      }).catchError((error) {
+        if (error is PlatformException) {
+          setState(() {
+            if (error.code == FirebaseAuthUi.kUserCancelledError) {
+              _error = "User cancelled login";
+            } else {
+              _error = error.message ?? "Unknown error!";
+            }
+          });
+        }
+      });
+    } else {
+      // User is already logged in, logout!
+      _logout();
+    }
+  }
+
+  void _logout() async {
+    await FirebaseAuthUi.instance().logout();
+    setState(() {
+      _user = null;
+    });
   }
 
   Container buildSigninSection() {

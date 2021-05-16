@@ -41,7 +41,7 @@ class _MyApppState extends State<MyAppp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:  AppBar(
+      appBar: AppBar(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         elevation: 1,
         leading: IconButton(
@@ -57,24 +57,27 @@ class _MyApppState extends State<MyAppp> {
       body: new Center(
         child: Column(
           children: <Widget>[
-          
             TextButton(
               onPressed: () async {
-                await flutterLocalNotificationsPlugin.periodicallyShow(0, 'title', 'body', RepeatInterval.everyMinute, const NotificationDetails(
-            android: AndroidNotificationDetails(
-              'your channel id',
-              'your channel name', 
-              'your channel description')),);
-                   
+                await flutterLocalNotificationsPlugin.periodicallyShow(
+                  0,
+                  'title',
+                  'body',
+                  RepeatInterval.everyMinute,
+                  const NotificationDetails(
+                      android: AndroidNotificationDetails('your channel id',
+                          'your channel name', 'your channel description')),
+                );
+
                 Navigator.pop(context);
               },
               child: new Text(
                 'scheduleNotification',
               ),
             ),
-           
           ],
         ),
       ),
     );
-  }}
+  }
+}

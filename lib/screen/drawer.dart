@@ -97,8 +97,10 @@ class Menu extends StatelessWidget {
             ),
             InkWell(
               onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => LoginSignupScreen()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => LoginSignupScreen()));
               },
               child: ListTile(
                   title: Text("Mon Compte"),

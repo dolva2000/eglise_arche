@@ -118,13 +118,12 @@ class _InformationState extends State<Information> {
                                   ),
                                 ),
                                 Center(
-                                  child: Text(
-                                    "Vision et Historique",
-                                    style: TextStyle(
+                                  child: Text("Vision et Historique",
+                                      style: TextStyle(
                                         fontSize: 20,
                                         fontWeight: FontWeight.bold,
-                                        color: Colors.white,)
-                                  ),
+                                        color: Colors.white,
+                                      )),
                                 ),
                               ],
                             ),

@@ -1,7 +1,6 @@
 import 'package:apparche/pages/settings.dart';
 import 'package:flutter/material.dart';
 
-
 class SettingsUI extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

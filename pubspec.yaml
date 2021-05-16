@@ -47,6 +47,8 @@ dependencies:
   shared_preferences: ^2.0.5
   flutter_settings_screens: ^0.2.2+1
   flutter_icons: ^1.1.0
+  flutter_auth_ui: ^2.1.0
+  firebase_auth_ui: ^1.0.1
 
 dev_dependencies:
   flutter_test:

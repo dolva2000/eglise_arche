@@ -30,9 +30,6 @@ class _HomeState extends State<Home> {
         100, random.nextInt(256), random.nextInt(256), random.nextInt(256));
   }
 
-
-
-
   @override
   Widget build(BuildContext context) {
     FlutterStatusbarManager.setStyle(StatusBarStyle.LIGHT_CONTENT);
@@ -295,14 +292,10 @@ class _HomeState extends State<Home> {
 
                       //la fin
                     ],
-                    
                   ),
-                  
                 ),
               ),
             ),
-        
-          
           ],
         ));
   }

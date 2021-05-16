@@ -9,16 +9,13 @@ class _SettingState extends State<Setting> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Paramètres'),
-        //backgroundColor: Colors.indigo,
-      ),
-      body:ElevatedButton(
-        child: Text("Security"),
-        onPressed: () {
-         
-        },
-      )
-    );
+        appBar: AppBar(
+          title: Text('Paramètres'),
+          //backgroundColor: Colors.indigo,
+        ),
+        body: ElevatedButton(
+          child: Text("Security"),
+          onPressed: () {},
+        ));
   }
 }
