@@ -49,7 +49,7 @@ class QuestionController extends GetxController
             options: question['options'],
             answer: question['answer_index']),
       )
-      .toList(growable:false) ;
+      .toList() ;
 
   List<Question> get questions => this._questions;
    List<Question> get questionsfacile => this._questions_normale;
@@ -117,10 +117,10 @@ class QuestionController extends GetxController
       nextQuestion1();
     });
   }
-  void checkAns1(Question question, int selectedIndex) {
+  void checkAns1(Question questionsfacile, int selectedIndex) {
     // because once user press any option then it will run
     _isAnswered = true;
-    _correctAns = question.answer;
+    _correctAns = questionsfacile.answer;
     _selectedAns = selectedIndex;
 
     if (_correctAns == _selectedAns) _numOfCorrectAns++;
@@ -134,10 +134,10 @@ class QuestionController extends GetxController
       nextQuestion1();
     });
   }
-   void checkAns2(Question question, int selectedIndex) {
+   void checkAns2(Question questionsdifficile, int selectedIndex) {
     // because once user press any option then it will run
     _isAnswered = true;
-    _correctAns = question.answer;
+    _correctAns = questionsdifficile.answer;
     _selectedAns = selectedIndex;
 
     if (_correctAns == _selectedAns) _numOfCorrectAns++;

@@ -188,13 +188,13 @@ const List difficile= [
    {
     "id": 9,
     "question": "Qui a survécu à la destruction de Sodome et Gomorrhe ?",
-    "options": ['Il n y avait pas de survivants', 'Abraham', 'Lot', 'ABR'],
+    "options": ['pas de survivants', 'Abraham', 'Lot', 'ABR'],
     "answer_index": 2,
   },
    {
     "id": 10,
     "question": "Quels prophètes sont apparus pendant la Transfiguration ?",
-    "options": ['Moïse', 'Élie et Élisée', 'Moïse et Élie', 'Survivre à une morsure de serpent'],
+    "options": ['Moïse', 'Élie et Élisée', 'Moïse et Élie', 'ABR'],
     "answer_index": 2,
   },
   
