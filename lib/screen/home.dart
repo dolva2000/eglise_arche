@@ -1,4 +1,5 @@
 import 'package:apparche/pages/settings.dart';
+import 'package:apparche/quiz/home_quiz.dart';
 import 'package:flutter/material.dart';
 import 'package:apparche/information/information.dart';
 import 'package:apparche/programme/programme.dart';
@@ -37,6 +38,7 @@ class _HomeState extends State<Home> {
         drawer: Menu(),
         appBar: AppBar(
           //backgroundColor: Colors.indigo,
+          shadowColor: Colors.white10,
           elevation: 2,
           centerTitle: true,
           title: Text(
@@ -230,21 +232,21 @@ class _HomeState extends State<Home> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => SettingsPage(),
+                                    builder: (context) => HomeQuiz(),
                                   ));
                             },
                             splashColor: Colors.green,
-                            child: Center(
+                            child: Center(                 
                                 child: Column(
                               mainAxisSize: MainAxisSize.min,
                               children: [
                                 Icon(
-                                  Icons.settings_rounded,
+                                  Icons.gamepad,
                                   color: Colors.cyan,
                                   size: 70.0,
                                 ),
                                 Text(
-                                  "Paramètres",
+                                  "QUIZ",
                                   style: TextStyle(
                                     fontSize: 15.0,
                                     color: Colors.cyan,

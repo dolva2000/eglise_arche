@@ -47,6 +47,8 @@ dependencies:
   shared_preferences: ^2.0.5
   flutter_settings_screens: ^0.2.2+1
   flutter_icons: ^1.1.0
+  flutter_svg: ^0.21.0+1
+  get: ^4.1.4
 
 dev_dependencies:
   flutter_test:
@@ -92,6 +94,9 @@ flutter:
     - asset/img/loading.png
     - asset/pdf/Historique.pdf
     - asset/pdf/AFFERMISSEMENTS.pdf
+    - asset/icon/quiz.jpg
+    - asset/icon/bg.svg
+    - asset/icon/clock.svg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
   # For details regarding adding assets from package dependencies, see
