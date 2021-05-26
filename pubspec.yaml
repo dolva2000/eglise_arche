@@ -50,6 +50,8 @@ dependencies:
   flutter_auth_ui: ^2.1.0
   firebase_auth_ui: ^1.0.1
   styled_text: ^3.0.0
+  flutter_svg: ^0.21.0+1
+  get: ^4.1.4
 
 dev_dependencies:
   flutter_test:
@@ -107,6 +109,9 @@ flutter:
     - asset/img/loading.png
     - asset/pdf/Historique.pdf
     - asset/pdf/AFFERMISSEMENTS.pdf
+    - asset/icon/quiz.jpg
+    - asset/icon/bg.svg
+    - asset/icon/clock.svg
     - asset/json/bible_data.json
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

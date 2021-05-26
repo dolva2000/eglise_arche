@@ -44,7 +44,21 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Arche Makala',
           theme: ThemeData(
-            primarySwatch: Colors.indigo,
+            primarySwatch: MaterialColor(
+              0xff123456,
+              <int, Color>{
+                50: Color(0xff123456),
+                100: Color(0xff123456),
+                200: Color(0xff123456),
+                300: Color(0xff123456),
+                400: Color(0xFF000000),
+                500: Color(0xff123456),
+                600: Color(0xFF000000),
+                700: Color(0xFF000000),
+                800: Color(0xFF000000),
+                900: Color(0xFF000000),
+              },
+            ),
             fontFamily: 'Lato',
           ),
           home: Homepage()),
