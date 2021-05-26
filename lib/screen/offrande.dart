@@ -50,7 +50,14 @@ class _OffrandeState extends State<Offrande> {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       SizedBox(height: 30),
-                      Text("Envoyez vos offrande par M-pesa avec cette numero",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white,fontSize: 20,),),
+                      Text(
+                        "Envoyez vos offrande par M-pesa",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          fontSize: 20,
+                        ),
+                      ),
                       SizedBox(height: 15),
                       OutlinedButton.icon(
                         style: OutlinedButton.styleFrom(
@@ -73,36 +80,6 @@ class _OffrandeState extends State<Offrande> {
                           style: TextStyle(fontSize: 18, color: Colors.white),
                         ),
                       ),
-                      SizedBox(height: 30),
-                      Text("Si vous êtes à l'étranger veuillez nous ecrire par mail",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white,fontSize: 20,)),
-
-                      SizedBox(height: 15),
-                      OutlinedButton.icon(
-                        style: OutlinedButton.styleFrom(
-                          padding: EdgeInsets.all(12),
-                          side: BorderSide(
-                            color: Colors.white,
-                            width: 3,
-                          ),
-                          shape: const RoundedRectangleBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10))),
-                        ),
-                        onPressed: () => launch("mailto:archemakala@gmail.com"),
-                        icon: Icon(
-                          Icons.send,
-                          color: Colors.white,
-                        ),
-                        label: Text(
-                          "mail:archemakala@gmail.com",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18),
-                        ),
-                      ),
-                      SizedBox(height: 30),
-                     
                     ],
                   ),
                 ),
@@ -115,7 +92,7 @@ class _OffrandeState extends State<Offrande> {
               Padding(
                 padding: const EdgeInsets.all(15),
                 child: Text(
-                  "Vous pouvez nous envoyez vos offrandes .",
+                  "Vous pouvez nous envoyez vos offrandes.",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontWeight: FontWeight.bold,

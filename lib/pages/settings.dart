@@ -35,34 +35,17 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        elevation: 1,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-          icon: Icon(
-            Icons.arrow_back,
-            color: Colors.green,
-          ),
-        ),
+        title: Text("Paramétres"),
       ),
       body: Container(
         padding: EdgeInsets.only(left: 16, top: 25, right: 16),
         child: ListView(
           children: [
-            Text(
-              "Parametre",
-              style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
-            ),
-            SizedBox(
-              height: 40,
-            ),
             Row(
               children: [
                 Icon(
                   Icons.share,
-                  color: Colors.green,
+                  color: Colors.indigo,
                 ),
                 SizedBox(
                   width: 8,
@@ -80,9 +63,8 @@ class _SettingsPageState extends State<SettingsPage> {
             SizedBox(
               height: 10,
             ),
-            buildAccountOptionRow(context, "Evaluer l'application","",""),
-            buildAccountOptionRow(context, "Partager l'application","",""),
-           
+            buildAccountOptionRow(context, "Evaluer l'application", "", ""),
+            buildAccountOptionRow(context, "Partager l'application", "", ""),
             Divider(),
             SizedBox(
               height: 40,
@@ -91,7 +73,7 @@ class _SettingsPageState extends State<SettingsPage> {
               children: [
                 Icon(
                   Icons.security,
-                  color: Colors.green,
+                  color: Colors.indigo,
                 ),
                 SizedBox(
                   width: 8,
@@ -109,23 +91,25 @@ class _SettingsPageState extends State<SettingsPage> {
             SizedBox(
               height: 10,
             ),
-            buildAccountOptionRow(context, "politique de confidentialité","ne pas encore disponible",""),
-            buildAccountOptionRow(context, "condition d'utilisation","ne pas encore disponible",""),
-            buildAccountOptionRow(context, "Aide","Veuillez contatez les administrateur",""),
-            buildAccountOptionRow(context, "Infos de l'application","la version de l'application"," est de 1.0.1"),
+            buildAccountOptionRow(context, "politique de confidentialité",
+                "ne pas encore disponible", ""),
+            buildAccountOptionRow(context, "condition d'utilisation",
+                "ne pas encore disponible", ""),
+            buildAccountOptionRow(
+                context, "Aide", "Veuillez contatez les administrateur", ""),
+            buildAccountOptionRow(context, "Infos de l'application",
+                "la version de l'application", " est de 1.0.1"),
             SizedBox(
               height: 50,
             ),
-            
           ],
         ),
       ),
     );
   }
 
- 
-
-  GestureDetector buildAccountOptionRow(BuildContext context, String title,String contenue,String contenue1 ) {
+  GestureDetector buildAccountOptionRow(
+      BuildContext context, String title, String contenue, String contenue1) {
     return GestureDetector(
       onTap: () {
         showDialog(

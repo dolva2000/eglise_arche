@@ -9,6 +9,7 @@ import 'package:apparche/programme/programme.dart';
 //import 'package:flutter_statusbar_manager/flutter_statusbar_manager.dart';
 
 import 'login_signup.dart';
+import 'edit_profile.dart';
 
 class Menu extends StatelessWidget {
   @override
@@ -91,8 +92,10 @@ class Menu extends StatelessWidget {
                   leading: Icon(Icons.event_note, color: Colors.indigo)),
             ),
             InkWell(
-              onTap: () { Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Offrande()));},
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Offrande()));
+              },
               child: ListTile(
                   title: Text("Mes offrandes"),
                   leading: Icon(Icons.money_outlined, color: Colors.indigo)),

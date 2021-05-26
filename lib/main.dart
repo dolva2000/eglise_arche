@@ -45,6 +45,7 @@ class MyApp extends StatelessWidget {
           title: 'Arche Makala',
           theme: ThemeData(
             primarySwatch: Colors.indigo,
+            fontFamily: 'Lato',
           ),
           home: Homepage()),
     );

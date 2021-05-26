@@ -117,7 +117,10 @@ class _ProgrammeState extends State<Programme> {
                   title: Text(
                     index.toString() + ".   " + list[index - 1],
                     textAlign: TextAlign.justify,
-                    style: TextStyle(fontSize: 12, color: Colors.white),
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: Colors.white,
+                    ),
                   ),
                 );
               }

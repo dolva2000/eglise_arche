@@ -109,10 +109,10 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
         // isn't configured to enable them. Please follow the README and uncomment
         // them if you want to integrate them in your project.
 
-       // AuthProvider.google(),
+        // AuthProvider.google(),
         //AuthProvider.facebook(),
         // AuthProvider.twitter(),
-         AuthProvider.phone(),
+        AuthProvider.phone(),
       ]).then((firebaseUser) {
         setState(() {
           _error = "";

@@ -61,7 +61,8 @@ class _AlerteNothificationState extends State<AlerteNothification> {
               RepeatInterval.daily,
               const NotificationDetails(
                   android: AndroidNotificationDetails('your channel id',
-                      'your channel name', 'your channel description', priority: Priority.max, fullScreenIntent: true)),
+                      'your channel name', 'your channel description',
+                      priority: Priority.max, fullScreenIntent: true)),
             );
             Navigator.of(context).pushAndRemoveUntil(
               MaterialPageRoute(builder: (BuildContext context) => Home()),
