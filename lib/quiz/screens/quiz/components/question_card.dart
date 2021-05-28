@@ -53,11 +53,11 @@ class QuestionCard1 extends StatelessWidget {
   const QuestionCard1({
     Key key,
     // it means we have to pass this
-    @required this.question,
+    @required this.questionsfacile,
     
   }) : super(key: key);
 
-  final Question question;
+  final Question questionsfacile;
 
   @override
   Widget build(BuildContext context) {
@@ -72,7 +72,7 @@ class QuestionCard1 extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            question.question,
+            questionsfacile.question,
             style: Theme.of(context)
                 .textTheme
                 .headline6
@@ -80,11 +80,11 @@ class QuestionCard1 extends StatelessWidget {
           ),
           SizedBox(height: kDefaultPadding / 2),
           ...List.generate(
-            question.options.length,
+            questionsfacile.options.length,
             (index) => Option(
               index: index,
-              text: question.options[index],
-              press: () => _controller.checkAns1(question, index),
+              text: questionsfacile.options[index],
+              press: () => _controller.checkAns1(questionsfacile, index),
             ),
           ),
         ],
@@ -96,11 +96,11 @@ class QuestionCard2 extends StatelessWidget {
   const QuestionCard2({
     Key key,
     // it means we have to pass this
-    @required this.question,
+    @required this.questionsdifficile,
     
   }) : super(key: key);
 
-  final Question question;
+  final Question questionsdifficile;
 
   @override
   Widget build(BuildContext context) {
@@ -115,7 +115,7 @@ class QuestionCard2 extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            question.question,
+            questionsdifficile.question,
             style: Theme.of(context)
                 .textTheme
                 .headline6
@@ -123,11 +123,11 @@ class QuestionCard2 extends StatelessWidget {
           ),
           SizedBox(height: kDefaultPadding / 2),
           ...List.generate(
-            question.options.length,
+            questionsdifficile.options.length,
             (index) => Option(
               index: index,
-              text: question.options[index],
-              press: () => _controller.checkAns2(question, index),
+              text: questionsdifficile.options[index],
+              press: () => _controller.checkAns2(questionsdifficile, index),
             ),
           ),
         ],

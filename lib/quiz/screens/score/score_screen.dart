@@ -27,7 +27,7 @@ class ScoreScreen extends StatelessWidget {
               ),
               Spacer(),
               Text(
-                "${_qnController.correctAns * 10}/${_qnController.questions.length * 10}",
+                "${_qnController.numOfCorrectAns * 10}/${_qnController.questions.length * 10}",
                 style: Theme.of(context)
                     .textTheme
                     .headline4
@@ -41,85 +41,3 @@ class ScoreScreen extends StatelessWidget {
     );
   }
 }
-
-
-
-
-class ScoreScreen1 extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    QuestionController _qnController = Get.put(QuestionController());
-    return Scaffold(
-      extendBodyBehindAppBar: true,
-      appBar: AppBar(),
-      body: Stack(
-        fit: StackFit.expand,
-        children: [
-          SvgPicture.asset("asset/icon/bg.svg", fit: BoxFit.fill),
-          Column(
-            children: [
-              Spacer(flex: 3),
-              Text(
-                "Score",
-                style: Theme.of(context)
-                    .textTheme
-                    .headline3
-                    .copyWith(color: kSecondaryColor),
-              ),
-              Spacer(),
-              Text(
-                "${_qnController.correctAns * 10}/${_qnController.questionsfacile.length * 10}",
-                style: Theme.of(context)
-                    .textTheme
-                    .headline4
-                    .copyWith(color: kSecondaryColor),
-              ),
-              Spacer(flex: 3),
-            ],
-          )
-        ],
-      ),
-    );
-  }
-}
-
-
-
-
-class ScoreScreen2 extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    QuestionController _qnController = Get.put(QuestionController());
-    return Scaffold(
-     
-      body: Stack(
-        fit: StackFit.expand,
-        children: [
-          SvgPicture.asset("asset/icon/bg.svg", fit: BoxFit.fill),
-          Column(
-            children: [
-              Spacer(flex: 3),
-              Text(
-                "Score",
-                style: Theme.of(context)
-                    .textTheme
-                    .headline3
-                    .copyWith(color: kSecondaryColor),
-              ),
-              Spacer(),
-              Text(
-                "${_qnController.correctAns * 10 }/${_qnController.questionsdifficile.length * 10}",
-                style: Theme.of(context)
-                    .textTheme
-                    .headline4
-                    .copyWith(color: kSecondaryColor),
-              ),
-              Spacer(flex: 3),
-            ],
-          )
-        ],
-      ),
-    );
-  }
-}
-

@@ -35,6 +35,7 @@ class _HomeState extends State<Home> {
         drawer: Menu(),
         appBar: AppBar(
           //backgroundColor: Colors.indigo,
+          foregroundColor:Colors.white10, 
           shadowColor: Colors.white10,
           elevation: 2,
           centerTitle: true,

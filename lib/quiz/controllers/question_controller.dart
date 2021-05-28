@@ -3,11 +3,11 @@ import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
 import 'package:apparche/quiz/models/Questions.dart';
 import 'package:apparche/quiz/screens/score/score_screen.dart';
+import 'package:apparche/utils/shuffle_list.dart';
 
 // We use get package for our state management
 
 class QuestionController extends GetxController
-
     with SingleGetTickerProviderMixin {
   // Lets animated our progress bar
 
@@ -19,19 +19,7 @@ class QuestionController extends GetxController
   PageController _pageController;
   PageController get pageController => this._pageController;
 
-  List<Question> _questions = facile
-      .map(
-        (question) => Question(
-            id: question['id'],
-            question: question['question'],
-            options: question['options'],
-            answer: question['answer_index']),
-      )
-      .toList();
-      
- 
- 
-      List<Question> _questions_normale = normal
+  List<Question> _questions = shuffle(facile)
       .map(
         (question) => Question(
             id: question['id'],
@@ -41,19 +29,29 @@ class QuestionController extends GetxController
       )
       .toList();
 
-      List<Question> _questions_difficile = difficile
+  List<Question> _questions_normale = shuffle(normal)
       .map(
-        (question) => Question(
-            id: question['id'],
-            question: question['question'],
-            options: question['options'],
-            answer: question['answer_index']),
+        (_questions_normale) => Question(
+            id: _questions_normale['id'],
+            question: _questions_normale['question'],
+            options: _questions_normale['options'],
+            answer: _questions_normale['answer_index']),
       )
-      .toList() ;
+      .toList();
+
+  List<Question> _questions_difficile = shuffle(difficile)
+      .map(
+        (_questions_difficile) => Question(
+            id: _questions_difficile['id'],
+            question: _questions_difficile['question'],
+            options: _questions_difficile['options'],
+            answer: _questions_difficile['answer_index']),
+      )
+      .toList();
 
   List<Question> get questions => this._questions;
-   List<Question> get questionsfacile => this._questions_normale;
-    List<Question> get questionsdifficile => this._questions_difficile;
+  List<Question> get questionsfacile => this._questions_normale;
+  List<Question> get questionsdifficile => this._questions_difficile;
 
   bool _isAnswered = false;
   bool get isAnswered => this._isAnswered;
@@ -87,6 +85,8 @@ class QuestionController extends GetxController
     // start our animation
     // Once 60s is completed go to the next qn
     _animationController.forward().whenComplete(nextQuestion);
+    _animationController.forward().whenComplete(nextQuestion1);
+    _animationController.forward().whenComplete(nextQuestion2);
     _pageController = PageController();
     super.onInit();
   }
@@ -99,7 +99,6 @@ class QuestionController extends GetxController
     _pageController.dispose();
   }
 
-  
   void checkAns(Question question, int selectedIndex) {
     // because once user press any option then it will run
     _isAnswered = true;
@@ -114,9 +113,10 @@ class QuestionController extends GetxController
 
     // Once user select an ans after 3s it will go to the next qn
     Future.delayed(Duration(seconds: 3), () {
-      nextQuestion1();
+      nextQuestion();
     });
   }
+
   void checkAns1(Question questionsfacile, int selectedIndex) {
     // because once user press any option then it will run
     _isAnswered = true;
@@ -134,7 +134,8 @@ class QuestionController extends GetxController
       nextQuestion1();
     });
   }
-   void checkAns2(Question questionsdifficile, int selectedIndex) {
+
+  void checkAns2(Question questionsdifficile, int selectedIndex) {
     // because once user press any option then it will run
     _isAnswered = true;
     _correctAns = questionsdifficile.answer;
@@ -151,13 +152,12 @@ class QuestionController extends GetxController
       nextQuestion2();
     });
   }
-  
 
   void nextQuestion() {
     if (_questionNumber.value != _questions.length) {
       _isAnswered = false;
       _pageController.nextPage(
-      duration: Duration(milliseconds: 250), curve: Curves.ease);
+          duration: Duration(milliseconds: 250), curve: Curves.ease);
 
       // Reset the counter
       _animationController.reset();
@@ -170,11 +170,12 @@ class QuestionController extends GetxController
       Get.to(ScoreScreen());
     }
   }
-    void nextQuestion1() {
-    if (_questionNumber.value != _questions.length) {
+
+  void nextQuestion1() {
+    if (_questionNumber.value != _questions_normale.length) {
       _isAnswered = false;
       _pageController.nextPage(
-      duration: Duration(milliseconds: 250), curve: Curves.ease);
+          duration: Duration(milliseconds: 250), curve: Curves.ease);
 
       // Reset the counter
       _animationController.reset();
@@ -184,14 +185,15 @@ class QuestionController extends GetxController
       _animationController.forward().whenComplete(nextQuestion1);
     } else {
       // Get package provide us simple way to naviigate another page
-      Get.to(ScoreScreen1());
+      Get.to(ScoreScreen());
     }
   }
-    void nextQuestion2() {
-    if (_questionNumber.value != _questions.length) {
+
+  void nextQuestion2() {
+    if (_questionNumber.value != _questions_difficile.length) {
       _isAnswered = false;
       _pageController.nextPage(
-      duration: Duration(milliseconds: 250), curve: Curves.ease);
+          duration: Duration(milliseconds: 250), curve: Curves.ease);
 
       // Reset the counter
       _animationController.reset();
@@ -201,7 +203,7 @@ class QuestionController extends GetxController
       _animationController.forward().whenComplete(nextQuestion2);
     } else {
       // Get package provide us simple way to naviigate another page
-      Get.to(ScoreScreen2());
+      Get.to(ScoreScreen());
     }
   }
 

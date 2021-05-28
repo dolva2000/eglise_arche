@@ -43,6 +43,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Arche Makala',
+          color: Color(0xff123456),
           theme: ThemeData(
             primarySwatch: MaterialColor(
               0xff123456,

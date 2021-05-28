@@ -88,6 +88,7 @@ class Normal extends StatelessWidget {
     
     // So that we have acccess our controller
     QuestionController _questionController = Get.put(QuestionController());
+    
     return Stack(
       children: [
         SvgPicture.asset("asset/icon/bg.svg", fit: BoxFit.fill),
@@ -137,7 +138,7 @@ class Normal extends StatelessWidget {
                   onPageChanged: _questionController.updateTheQnNum,
                   itemCount: _questionController.questionsfacile.length,
                   itemBuilder: (context, index) => QuestionCard1(
-                      question: _questionController.questionsfacile[index]),
+                      questionsfacile: _questionController.questionsfacile[index]),
                 ),
               ),
             ],
@@ -208,7 +209,7 @@ class Difficile extends StatelessWidget {
                   onPageChanged: _questionController.updateTheQnNum,
                   itemCount: _questionController.questionsdifficile.length,
                   itemBuilder: (context, index) => QuestionCard2(
-                      question: _questionController.questionsdifficile[index]),
+                      questionsdifficile: _questionController.questionsdifficile[index]),
                 ),
               ),
             ],
