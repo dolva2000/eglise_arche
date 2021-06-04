@@ -67,8 +67,14 @@ final List facile = [
     "options": ['les fils de Cham', 'Noé', 'les fils de jacob', 'Job'],
     "answer_index": 0,
   },
+  {
+    "id": 11,
+    "question": "Qui a construit la Tour de Babel ?",
+    "options": ['les fils de Cham', 'Noé', 'les fils de jacob', 'Job'],
+    "answer_index": 0,
+  },
 ];
-  
+
 final List normal = [
   {
     "id": 1,
@@ -137,6 +143,12 @@ final List normal = [
     "options": ['Le grec', 'ABR', 'langue des anges', ' langue hébraïque'],
     "answer_index": 3,
   },
+  {
+    "id": 11,
+    "question": "En quelle langue Jésus parla-t-il à Saul ?",
+    "options": ['Le grec', 'ABR', 'langue des anges', ' langue hébraïque'],
+    "answer_index": 3,
+  },
 ];
 
 final List difficile = [
@@ -197,6 +209,12 @@ final List difficile = [
   },
   {
     "id": 10,
+    "question": "Quels prophètes sont apparus pendant la Transfiguration ?",
+    "options": ['Moïse', 'Élie et Élisée', 'Moïse et Élie', 'ABR'],
+    "answer_index": 2,
+  },
+  {
+    "id": 11,
     "question": "Quels prophètes sont apparus pendant la Transfiguration ?",
     "options": ['Moïse', 'Élie et Élisée', 'Moïse et Élie', 'ABR'],
     "answer_index": 2,

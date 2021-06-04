@@ -154,7 +154,7 @@ class QuestionController extends GetxController
   }
 
   void nextQuestion() {
-    if (_questionNumber.value != _questions.length) {
+    if (_questionNumber.value != _questions.length ) {
       _isAnswered = false;
       _pageController.nextPage(
           duration: Duration(milliseconds: 250), curve: Curves.ease);
@@ -165,6 +165,7 @@ class QuestionController extends GetxController
       // Then start it again
       // Once timer is finish go to the next qn
       _animationController.forward().whenComplete(nextQuestion);
+    
     } else {
       // Get package provide us simple way to naviigate another page
       Get.to(ScoreScreen());
@@ -172,7 +173,7 @@ class QuestionController extends GetxController
   }
 
   void nextQuestion1() {
-    if (_questionNumber.value != _questions_normale.length) {
+    if (_questionNumber.value != _questions_normale.length-1) {
       _isAnswered = false;
       _pageController.nextPage(
           duration: Duration(milliseconds: 250), curve: Curves.ease);

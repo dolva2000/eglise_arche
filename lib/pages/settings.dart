@@ -1,15 +1,13 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:path_provider/path_provider.dart';
 import 'dart:io' show File, Platform;
-import 'package:http/http.dart' as http;
-import 'package:rxdart/subjects.dart';
-import 'package:timezone/data/latest.dart' as tz;
-import 'package:timezone/timezone.dart' as tz;
-
+import 'package:share_plus/share_plus.dart';
+String text = 'partagez les liens de l application';
+  String subject = '';
+  List<String> imagePaths = [];
 class SettingsPage extends StatefulWidget {
+  
   @override
   _SettingsPageState createState() => _SettingsPageState();
 }
@@ -33,6 +31,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       appBar: AppBar(
         title: Text("Paramétres"),
@@ -50,10 +49,16 @@ class _SettingsPageState extends State<SettingsPage> {
                 SizedBox(
                   width: 8,
                 ),
-                Text(
-                  "Evaluer et Partager",
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
+                 InkWell(
+              onTap:text.isEmpty 
+                            ? null
+                            : () => _onShare(context),
+              child: ListTile(
+                  title: Text("Evaluer et Partager"),
+                  leading:
+                      Icon(Icons.contact_phone_outlined, color: Colors.indigo)),
+            ),
+                
               ],
             ),
             Divider(
@@ -157,3 +162,25 @@ class _SettingsPageState extends State<SettingsPage> {
     );
   }
 }
+ void _onShare(BuildContext context) async {
+    // A builder is used to retrieve the context immediately
+    // surrounding the ElevatedButton.
+    //
+    // The context's `findRenderObject` returns the first
+    // RenderObject in its descendent tree when it's not
+    // a RenderObjectWidget. The ElevatedButton's RenderObject
+    // has its position and size after it's built.
+    final box = context.findRenderObject() as RenderBox;
+
+    if (imagePaths.isNotEmpty) {
+      await Share.shareFiles(imagePaths,
+          text: text,
+          subject: subject,
+          sharePositionOrigin: box.localToGlobal(Offset.zero) & box.size);
+    } else {
+      await Share.share(text,
+          subject: subject,
+          sharePositionOrigin: box.localToGlobal(Offset.zero) & box.size);
+    }
+  }
+
