@@ -1,3 +1,4 @@
+import 'package:apparche/galleryimg/home_page.dart';
 import 'package:flutter/material.dart';
 import 'vision.dart';
 import 'pastoral.dart';
@@ -44,7 +45,7 @@ class _InformationState extends State<Information> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => Pastorale(),
+                                  builder: (context) => Gallery(),
                                 ));
                           },
                           child: Container(
