@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_cached_pdfview/flutter_cached_pdfview.dart';
 import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:apparche/galleryimg/home_page.dart';
 
 class Vision extends StatefulWidget {
   @override
@@ -9,15 +10,13 @@ class Vision extends StatefulWidget {
 }
 
 class _VisionState extends State<Vision> {
-  int _current = 0;
-
   CarouselOptions carouselSlider;
   List imglist = [
-    "assets/img/mardi.jpg",
-    "assets/img/jeudi.jpg",
-    "assets/img/dimanche.jpg"
+    "asset/img/mardi.jpg",
+    "asset/img/jeudi.jpg",
+    "asset/img/dimanche.jpg"
   ];
-
+  int _current = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,45 +33,7 @@ class _VisionState extends State<Vision> {
           child: ListView(
             padding: EdgeInsets.symmetric(horizontal: 18, vertical: 20),
             children: [
-              CarouselSlider(
-                  options: carouselSlider = CarouselOptions(
-                      height: MediaQuery.of(context).size.height - 480,
-                      autoPlay: true,
-                      autoPlayAnimationDuration: Duration(seconds: 3),
-                      autoPlayCurve: Curves.fastOutSlowIn,
-                      viewportFraction: 1.0,
-                      enlargeCenterPage: true,
-                      initialPage: 0,
-                      enableInfiniteScroll: true,
-                      reverse: false,
-                      autoPlayInterval: Duration(
-                        seconds: 4,
-                      ),
-                      onPageChanged: (index, reason) {
-                        setState(() {
-                          _current = index;
-                        });
-                      }
-                      // autoPlay: false,
-                      ),
-                  items: imglist.map((imgAsset) {
-                    return Builder(builder: (BuildContext context) {
-                      return Container(
-                        width: MediaQuery.of(context).size.width + 88,
-                        height: MediaQuery.of(context).size.height + 88,
-                        margin: EdgeInsets.symmetric(horizontal: 4.0),
-                        decoration: BoxDecoration(color: Colors.transparent),
-                        child: Image.asset(
-                          imgAsset,
-                          height: 550,
-                          fit: BoxFit.contain,
-                        ),
-                      );
-                    });
-                  }).toList()),
-              SizedBox(
-                height: 20,
-              ),
+             
               Text(
                 "HISTORIQUE",
                 textAlign: TextAlign.center,
@@ -134,25 +95,63 @@ class _VisionState extends State<Vision> {
                 textAlign: TextAlign.justify,
                 style: TextStyle(color: Colors.grey.shade100),
               ),
+             
+               CarouselSlider(
+                  options: carouselSlider = CarouselOptions(
+                      height: MediaQuery.of(context).size.height - 480,
+                      autoPlay: true,
+                      autoPlayAnimationDuration: Duration(seconds: 3),
+                      autoPlayCurve: Curves.fastOutSlowIn,
+                      viewportFraction: 1.0,
+                      enlargeCenterPage: true,
+                      initialPage: 0,
+                      enableInfiniteScroll: true,
+                      reverse: false,
+                      autoPlayInterval: Duration(
+                        seconds: 4,
+                      ),
+                      onPageChanged: (index, reason) {
+                        setState(() {
+                          _current = index;
+                        });
+                      }
+                      // autoPlay: false,
+                      ),
+                  items: imglist.map((imgAsset) {
+                    return Builder(builder: (BuildContext context) {
+                      return Container(
+                        width: MediaQuery.of(context).size.width + 88,
+                        height: MediaQuery.of(context).size.height + 88,
+                        margin: EdgeInsets.symmetric(horizontal: 4.0),
+                        decoration: BoxDecoration(color: Colors.transparent),
+                        child: Image.asset(
+                          imgAsset,
+                          height: 550,
+                          fit: BoxFit.contain,
+                        ),
+                      );
+                    });
+                  }).toList()),
+              TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Gallery(),
+                        ));
+                  },
+                  child: Text(
+                    "Voir plus des photos",
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
+                  ),
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.white),
+                  )),
             ],
           ),
         ));
   }
 }
-
-/* 
-PDF(
-          enableSwipe: true,
-          swipeHorizontal: true,
-          autoSpacing: false,
-          pageFling: false,
-          onError: (error) {
-            debugPrint(error.toString());
-          },
-          onPageError: (page, error) {
-            debugPrint('$page: ${error.toString()}');
-          },
-          onPageChanged: (int page, int total) {
-            debugPrint('page change: $page/$total');
-          },
-        ).fromAsset('assets/pdf/Historique.pdf'), */

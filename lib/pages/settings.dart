@@ -1,13 +1,12 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:path_provider/path_provider.dart';
 import 'dart:io' show File, Platform;
-import 'package:http/http.dart' as http;
-import 'package:rxdart/subjects.dart';
-import 'package:timezone/data/latest.dart' as tz;
-import 'package:timezone/timezone.dart' as tz;
+import 'package:share_plus/share_plus.dart';
+
+String text = 'partagez les liens de l application';
+String subject = '';
+List<String> imagePaths = [];
 
 class SettingsPage extends StatefulWidget {
   @override
@@ -45,29 +44,19 @@ class _SettingsPageState extends State<SettingsPage> {
         padding: EdgeInsets.only(left: 16, top: 25, right: 16),
         child: ListView(
           children: [
-            Row(
-              children: [
-                Icon(
-                  Icons.share,
-                  color: Colors.white,
-                ),
-                SizedBox(
-                  width: 8,
-                ),
-                Text(
-                  "Evaluer et Partager",
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                ),
-              ],
+            InkWell(
+              onTap: text.isEmpty ? null : () => _onShare(context),
+              child: ListTile(
+                  title: Text("Partager l'application",
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                  leading: Icon(
+                    Icons.share,
+                    color: Colors.indigo,
+                  )),
             ),
             Divider(
               height: 15,
-              thickness: 2,
-              color: Colors.white60,
             ),
             SizedBox(
               height: 10,
@@ -116,7 +105,17 @@ class _SettingsPageState extends State<SettingsPage> {
             buildAccountOptionRow(
                 context, "Infos de l'application", "version", "1.0.1"),
             SizedBox(
-              height: 50,
+              height: 50,  ),
+            InkWell(
+              onTap: (){},
+              child: ListTile(
+                  title: Text("Securite",
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                  leading: Icon(
+                    Icons.security,
+                    color: Colors.indigo,
+                  )),
             ),
           ],
         ),
@@ -171,5 +170,31 @@ class _SettingsPageState extends State<SettingsPage> {
         ),
       ),
     );
-  }
+  
 }
+
+void _onShare(BuildContext context) async {
+    // A builder is used to retrieve the context immediately
+    // surrounding the ElevatedButton.
+    //
+    // The context's `findRenderObject` returns the first
+    // RenderObject in its descendent tree when it's not
+    // a RenderObjectWidget. The ElevatedButton's RenderObject
+    // has its position and size after it's built.
+    final box = context.findRenderObject() as RenderBox;
+
+    if (imagePaths.isNotEmpty) {
+      await Share.shareFiles(imagePaths,
+          text: text,
+          subject: subject,
+          sharePositionOrigin: box.localToGlobal(Offset.zero) & box.size);
+    } else {
+      await Share.share(text,
+          subject: subject,
+          sharePositionOrigin: box.localToGlobal(Offset.zero) & box.size);
+    }
+  }
+  
+}
+
+
