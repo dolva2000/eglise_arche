@@ -56,7 +56,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                           shape: BoxShape.circle,
                           image: DecorationImage(
                               fit: BoxFit.cover,
-                              image: AssetImage("asset/img/hhh.png"))),
+                              image: AssetImage("assets/img/hhh.png"))),
                     ),
                     Positioned(
                         bottom: 0,

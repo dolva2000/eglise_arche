@@ -13,14 +13,14 @@ class HomeQuiz extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(),
       home: Scaffold(
-        appBar: AppBar(         
+        appBar: AppBar(
           centerTitle: true,
           title: Text("Quiz Biblique"),
           backgroundColor: Color(0xff123456),
         ),
         body: Stack(
           children: [
-            SvgPicture.asset("asset/icon/bg.svg", fit: BoxFit.fill),
+            SvgPicture.asset("assets/icon/bg.svg", fit: BoxFit.fill),
             SafeArea(
               child: Padding(
                 padding:
@@ -31,7 +31,7 @@ class HomeQuiz extends StatelessWidget {
                     Spacer(flex: 1), //2/6
                     Center(
                       child: Text(
-                        "Niveau des jeux",
+                        "Niveau du Quiz",
                         style: Theme.of(context).textTheme.headline4.copyWith(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
@@ -40,7 +40,7 @@ class HomeQuiz extends StatelessWidget {
                     ),
                     Spacer(flex: 1),
                     InkWell(
-                      onTap: () => Get.to(QuizScreen()),
+                      onTap: () => Get.to(QuizScreen(levelCode: 1)),
                       child: Container(
                         width: double.infinity,
                         alignment: Alignment.center,
@@ -60,7 +60,7 @@ class HomeQuiz extends StatelessWidget {
                     ),
                     SizedBox(height: 35.1), // 1/6
                     InkWell(
-                      onTap: () => Get.to(QuizScreenNormal()),
+                      onTap: () => Get.to(QuizScreen(levelCode: 2)),
                       child: Container(
                         width: double.infinity,
                         alignment: Alignment.center,
@@ -80,7 +80,7 @@ class HomeQuiz extends StatelessWidget {
                     ),
                     SizedBox(height: 35.1), // 1/6
                     InkWell(
-                      onTap: () => Get.to(QuizScreenfacile()),
+                      onTap: () => Get.to(QuizScreen(levelCode: 3)),
                       child: Container(
                         width: double.infinity,
                         alignment: Alignment.center,

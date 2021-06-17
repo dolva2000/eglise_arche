@@ -13,9 +13,9 @@ class AffermissementScreen extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           elevation: 0,
-          backgroundColor: Colors.indigo,
           automaticallyImplyLeading: false,
           title: TabBar(
+            indicatorColor: Colors.amberAccent,
             tabs: [
               Tab(
                 child: Text("Affermissement"),
@@ -45,115 +45,152 @@ class Affermissement extends StatefulWidget {
 class _AffermissementState extends State<Affermissement> {
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        InkWell(
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute<dynamic>(
-                    builder: (_) => PDFViewerFromAsset(
-                          pdfAssetPath: 'asset/pdf/AFFERMISSEMENTS.pdf',
-                        )));
-          },
-          child: ListTile(
-              title: Text("Leçon 1: La Salut"),
-              leading: Icon(
-                Icons.event_note,
-                color: Colors.indigo,
-              )),
-        ),
-        InkWell(
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute<dynamic>(
-                    builder: (_) => PDFViewerFromAsset(
-                          pdfAssetPath: 'asset/pdf/AFFERMISSEMENTS.pdf',
-                        )));
-          },
-          child: ListTile(
-              title: Text("Leçon 2: La Croissance dans la foi"),
-              leading: Icon(Icons.event_note, color: Colors.indigo)),
-        ),
-        InkWell(
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute<dynamic>(
-                    builder: (_) => PDFViewerFromAsset(
-                          pdfAssetPath: 'asset/pdf/AFFERMISSEMENTS.pdf',
-                        )));
-          },
-          child: ListTile(
-              title: Text("Leçon 3: L'assurance du salut"),
-              leading: Icon(Icons.event_note, color: Colors.indigo)),
-        ),
-        InkWell(
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute<dynamic>(
-                    builder: (_) => PDFViewerFromAsset(
-                          pdfAssetPath: 'asset/pdf/AFFERMISSEMENTS.pdf',
-                        )));
-          },
-          child: ListTile(
-              title: Text("Leçon 4: Le Saint-esprit"),
-              leading: Icon(Icons.event_note, color: Colors.indigo)),
-        ),
-        InkWell(
-          onTap: () {},
-          child: ListTile(
-              title: Text("Leçon 5: L'heritage du salut"),
-              leading: Icon(Icons.event_note, color: Colors.indigo)),
-        ),
-        InkWell(
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute<dynamic>(
-                    builder: (_) => PDFViewerFromAsset(
-                          pdfAssetPath: 'asset/pdf/AFFERMISSEMENTS.pdf',
-                        )));
-          },
-          child: ListTile(
-              title: Text("Leçon 6: La Foi"),
-              leading: Icon(Icons.event_note, color: Colors.indigo)),
-        ),
-        InkWell(
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute<dynamic>(
-                    builder: (_) => PDFViewerFromAsset(
-                          pdfAssetPath: 'asset/pdf/AFFERMISSEMENTS.pdf',
-                        )));
-          },
-          child: ListTile(
-              title: Text("Leçon 7: Meditation"),
-              leading: Icon(
-                Icons.event_note,
-                color: Colors.indigo,
-              )),
-        ),
-        InkWell(
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute<dynamic>(
-                    builder: (_) => PDFViewerFromAsset(
-                          pdfAssetPath: 'asset/pdf/AFFERMISSEMENTS.pdf',
-                        )));
-          },
-          child: ListTile(
-              title: Text("leçon 8: Les Cieux"),
-              leading: Icon(
-                Icons.event_note,
-                color: Colors.indigo,
-              )),
-        ),
-      ],
+    return Container(
+      decoration: new BoxDecoration(
+        image: DecorationImage(
+            image: AssetImage('assets/img/bg2.jpg'), fit: BoxFit.cover),
+      ),
+      child: ListView(
+        children: [
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute<dynamic>(
+                      builder: (_) => PDFViewerFromAsset(
+                            pdfAssetPath: 'assets/pdf/AFFERMISSEMENTS.pdf',
+                          )));
+            },
+            child: ListTile(
+                title: Text(
+                  "1: La Salut",
+                  style: TextStyle(color: Colors.white70),
+                ),
+                leading: Icon(
+                  Icons.menu_book_rounded,
+                  color: Colors.white,
+                )),
+          ),
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute<dynamic>(
+                      builder: (_) => PDFViewerFromAsset(
+                            pdfAssetPath: 'assets/pdf/AFFERMISSEMENTS.pdf',
+                          )));
+            },
+            child: ListTile(
+                title: Text(
+                  "2: La Croissance dans la foi",
+                  style: TextStyle(color: Colors.white70),
+                ),
+                leading: Icon(Icons.menu_book_rounded, color: Colors.white)),
+          ),
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute<dynamic>(
+                      builder: (_) => PDFViewerFromAsset(
+                            pdfAssetPath: 'assets/pdf/AFFERMISSEMENTS.pdf',
+                          )));
+            },
+            child: ListTile(
+                title: Text(
+                  "3: L'assurance du salut",
+                  style: TextStyle(color: Colors.white70),
+                ),
+                leading: Icon(Icons.menu_book_rounded, color: Colors.white)),
+          ),
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute<dynamic>(
+                      builder: (_) => PDFViewerFromAsset(
+                            pdfAssetPath: 'assets/pdf/AFFERMISSEMENTS.pdf',
+                          )));
+            },
+            child: ListTile(
+                title: Text(
+                  "4: Le Saint-esprit",
+                  style: TextStyle(color: Colors.white70),
+                ),
+                leading: Icon(Icons.menu_book_rounded, color: Colors.white)),
+          ),
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute<dynamic>(
+                      builder: (_) => PDFViewerFromAsset(
+                            pdfAssetPath: 'assets/pdf/AFFERMISSEMENTS.pdf',
+                          )));
+            },
+            child: ListTile(
+                title: Text(
+                  "5: L'heritage du salut",
+                  style: TextStyle(color: Colors.white70),
+                ),
+                leading: Icon(Icons.menu_book_rounded, color: Colors.white)),
+          ),
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute<dynamic>(
+                      builder: (_) => PDFViewerFromAsset(
+                            pdfAssetPath: 'assets/pdf/AFFERMISSEMENTS.pdf',
+                          )));
+            },
+            child: ListTile(
+                title: Text(
+                  "6: La Foi",
+                  style: TextStyle(color: Colors.white70),
+                ),
+                leading: Icon(Icons.menu_book_rounded, color: Colors.white)),
+          ),
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute<dynamic>(
+                      builder: (_) => PDFViewerFromAsset(
+                            pdfAssetPath: 'assets/pdf/AFFERMISSEMENTS.pdf',
+                          )));
+            },
+            child: ListTile(
+                title: Text(
+                  "7: Meditation",
+                  style: TextStyle(color: Colors.white70),
+                ),
+                leading: Icon(
+                  Icons.menu_book_rounded,
+                  color: Colors.white,
+                )),
+          ),
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute<dynamic>(
+                      builder: (_) => PDFViewerFromAsset(
+                            pdfAssetPath: 'assets/pdf/AFFERMISSEMENTS.pdf',
+                          )));
+            },
+            child: ListTile(
+                title: Text(
+                  "8: Les Cieux",
+                  style: TextStyle(color: Colors.white70),
+                ),
+                leading: Icon(
+                  Icons.menu_book_rounded,
+                  color: Colors.white,
+                )),
+          ),
+        ],
+      ),
     );
   }
 }

@@ -30,9 +30,7 @@ class _AlerteNothificationState extends State<AlerteNothification> {
 
   Future onSelectNotification(String payload) {
     Navigator.of(context).push(MaterialPageRoute(builder: (_) {
-      return Programme(
-        payload: payload,
-      );
+      return Programme();
     }));
   }
 

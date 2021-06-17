@@ -31,7 +31,7 @@ class _WebViewPageState extends State<WebViewPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset("asset/img/undraw_online_articles_79ff.png")
+              Image.asset("assets/img/undraw_online_articles_79ff.png")
             ],
           )),
       bottomNavigationBar: BottomAppBar(

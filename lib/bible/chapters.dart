@@ -18,7 +18,7 @@ class ChaptersScreen extends StatelessWidget {
       body: Container(
         decoration: new BoxDecoration(
             image: DecorationImage(
-                image: AssetImage('asset/img/bg2.jpg'), fit: BoxFit.cover)),
+                image: AssetImage('assets/img/bg2.jpg'), fit: BoxFit.cover)),
         child: GridView.builder(
           padding: EdgeInsets.all(15),
           gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(

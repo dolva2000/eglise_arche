@@ -18,7 +18,7 @@ class _BibleViewState extends State<BibleView> {
   BibleList _bibleList;
 
   loadJson() async {
-    String data = await rootBundle.loadString('asset/json/bible_data.json');
+    String data = await rootBundle.loadString('assets/json/bible_data.json');
 
     setState(() {
       //_data = json.decode(data).map((x) => BibleListItem.fromJson(x));
@@ -39,10 +39,10 @@ class _BibleViewState extends State<BibleView> {
       child: Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          backgroundColor: Colors.indigo.shade400,
+          backgroundColor: Color(0xFF1F4061),
           title: TabBar(
             indicatorSize: TabBarIndicatorSize.label,
-           indicatorColor: Colors.amberAccent,
+            indicatorColor: Colors.amberAccent,
             tabs: [
               Tab(
                 child: Text("Ancien Testament",
@@ -54,7 +54,7 @@ class _BibleViewState extends State<BibleView> {
               Tab(
                 child: Text("Nouveau Testament",
                     style: TextStyle(
-                       fontWeight: FontWeight.normal,
+                      fontWeight: FontWeight.normal,
                       color: Colors.white,
                     )),
               ),
@@ -84,7 +84,7 @@ class ChaptersList extends StatelessWidget {
     return Container(
       decoration: new BoxDecoration(
         image: DecorationImage(
-            image: AssetImage('asset/img/bg2.jpg'), fit: BoxFit.cover),
+            image: AssetImage('assets/img/bg2.jpg'), fit: BoxFit.cover),
       ),
       child: ListView.builder(
         itemCount: index == 0
@@ -99,7 +99,10 @@ class ChaptersList extends StatelessWidget {
             children: [
               InkWell(
                 child: ListTile(
-                  trailing: Icon(Icons.chevron_right_outlined, color: Colors.white,),
+                  trailing: Icon(
+                    Icons.chevron_right_outlined,
+                    color: Colors.white,
+                  ),
                   title: Text(
                     bibleListItem.name,
                     style: TextStyle(color: Colors.white),

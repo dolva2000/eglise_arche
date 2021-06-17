@@ -29,7 +29,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
   @override
   Widget build(BuildContext context) {
     // User is null, initiate auth
-    print('pressed');
+    debugPrint('pressed');
     return Scaffold(
       backgroundColor: Palette.backgroundColor,
       body: Center(
@@ -99,17 +99,17 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
   }
 
   void _onActionTapped() {
-    print('pressed $_user');
+    debugPrint('pressed $_user');
     if (_user == null) {
       // User is null, initiate auth
-      print('pressed');
+      debugPrint('pressed');
       FirebaseAuthUi.instance().launchAuth([
         // AuthProvider.email(),
         // Google ,facebook, twitter and phone auth providers are commented because this example
         // isn't configured to enable them. Please follow the README and uncomment
         // them if you want to integrate them in your project.
 
-        // AuthProvider.google(),
+        AuthProvider.google(),
         //AuthProvider.facebook(),
         // AuthProvider.twitter(),
         AuthProvider.phone(),

@@ -2,7 +2,9 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
 import 'package:apparche/quiz/models/Questions.dart';
+import 'package:apparche/quiz/data/questions.dart';
 import 'package:apparche/quiz/screens/score/score_screen.dart';
+
 import 'package:apparche/utils/shuffle_list.dart';
 
 // We use get package for our state management
@@ -19,7 +21,7 @@ class QuestionController extends GetxController
   PageController _pageController;
   PageController get pageController => this._pageController;
 
-  List<Question> _questions = shuffle(facile)
+  List<Question> _questionsFacile = shuffle(facile)
       .map(
         (question) => Question(
             id: question['id'],
@@ -29,29 +31,29 @@ class QuestionController extends GetxController
       )
       .toList();
 
-  List<Question> _questions_normale = shuffle(normal)
+  List<Question> _questionsNormale = shuffle(normal)
       .map(
-        (_questions_normale) => Question(
-            id: _questions_normale['id'],
-            question: _questions_normale['question'],
-            options: _questions_normale['options'],
-            answer: _questions_normale['answer_index']),
+        (question) => Question(
+            id: question['id'],
+            question: question['question'],
+            options: question['options'],
+            answer: question['answer_index']),
       )
       .toList();
 
-  List<Question> _questions_difficile = shuffle(difficile)
+  List<Question> _questionsDifficile = shuffle(difficile)
       .map(
-        (_questions_difficile) => Question(
-            id: _questions_difficile['id'],
-            question: _questions_difficile['question'],
-            options: _questions_difficile['options'],
-            answer: _questions_difficile['answer_index']),
+        (question) => Question(
+            id: question['id'],
+            question: question['question'],
+            options: question['options'],
+            answer: question['answer_index']),
       )
       .toList();
 
-  List<Question> get questions => this._questions;
-  List<Question> get questionsfacile => this._questions_normale;
-  List<Question> get questionsdifficile => this._questions_difficile;
+  List<Question> get questionsFacile => this._questionsFacile;
+  List<Question> get questionsNormale => this._questionsNormale;
+  List<Question> get questionsDifficile => this._questionsDifficile;
 
   bool _isAnswered = false;
   bool get isAnswered => this._isAnswered;
@@ -69,6 +71,12 @@ class QuestionController extends GetxController
   int _numOfCorrectAns = 0;
   int get numOfCorrectAns => this._numOfCorrectAns;
 
+  void getQuestion(int level) {
+    super.onClose();
+    _animationController.dispose();
+    _pageController.dispose();
+  }
+
   // called immediately after the widget is allocated memory
   @override
   void onInit() {
@@ -84,9 +92,10 @@ class QuestionController extends GetxController
 
     // start our animation
     // Once 60s is completed go to the next qn
-    _animationController.forward().whenComplete(nextQuestion);
-    _animationController.forward().whenComplete(nextQuestion1);
-    _animationController.forward().whenComplete(nextQuestion2);
+    _animationController.forward().whenComplete(nextQuestionFacile);
+    _animationController.forward().whenComplete(nextQuestionNormale);
+    _animationController.forward().whenComplete(nextQuestionDifficile);
+
     _pageController = PageController();
     super.onInit();
   }
@@ -99,7 +108,7 @@ class QuestionController extends GetxController
     _pageController.dispose();
   }
 
-  void checkAns(Question question, int selectedIndex) {
+  void checkAns(Question question, int selectedIndex, int levelCode) {
     // because once user press any option then it will run
     _isAnswered = true;
     _correctAns = question.answer;
@@ -113,48 +122,24 @@ class QuestionController extends GetxController
 
     // Once user select an ans after 3s it will go to the next qn
     Future.delayed(Duration(seconds: 3), () {
-      nextQuestion();
+      switch (levelCode) {
+        case 1:
+          nextQuestionFacile();
+          break;
+        case 2:
+          nextQuestionNormale();
+          break;
+        case 3:
+          nextQuestionDifficile();
+          break;
+        default:
+          break;
+      }
     });
   }
 
-  void checkAns1(Question questionsfacile, int selectedIndex) {
-    // because once user press any option then it will run
-    _isAnswered = true;
-    _correctAns = questionsfacile.answer;
-    _selectedAns = selectedIndex;
-
-    if (_correctAns == _selectedAns) _numOfCorrectAns++;
-
-    // It will stop the counter
-    _animationController.stop();
-    update();
-
-    // Once user select an ans after 3s it will go to the next qn
-    Future.delayed(Duration(seconds: 3), () {
-      nextQuestion1();
-    });
-  }
-
-  void checkAns2(Question questionsdifficile, int selectedIndex) {
-    // because once user press any option then it will run
-    _isAnswered = true;
-    _correctAns = questionsdifficile.answer;
-    _selectedAns = selectedIndex;
-
-    if (_correctAns == _selectedAns) _numOfCorrectAns++;
-
-    // It will stop the counter
-    _animationController.stop();
-    update();
-
-    // Once user select an ans after 3s it will go to the next qn
-    Future.delayed(Duration(seconds: 3), () {
-      nextQuestion2();
-    });
-  }
-
-  void nextQuestion() {
-    if (_questionNumber.value != _questions.length) {
+  void nextQuestionFacile() {
+    if (_questionNumber.value != _questionsFacile.length) {
       _isAnswered = false;
       _pageController.nextPage(
           duration: Duration(milliseconds: 250), curve: Curves.ease);
@@ -164,15 +149,15 @@ class QuestionController extends GetxController
 
       // Then start it again
       // Once timer is finish go to the next qn
-      _animationController.forward().whenComplete(nextQuestion);
+      _animationController.forward().whenComplete(nextQuestionFacile);
     } else {
       // Get package provide us simple way to naviigate another page
-      Get.to(ScoreScreen());
+      Get.to(ScoreScreen(levelCode: 1));
     }
   }
 
-  void nextQuestion1() {
-    if (_questionNumber.value != _questions_normale.length) {
+  void nextQuestionNormale() {
+    if (_questionNumber.value != _questionsNormale.length) {
       _isAnswered = false;
       _pageController.nextPage(
           duration: Duration(milliseconds: 250), curve: Curves.ease);
@@ -182,15 +167,15 @@ class QuestionController extends GetxController
 
       // Then start it again
       // Once timer is finish go to the next qn
-      _animationController.forward().whenComplete(nextQuestion1);
+      _animationController.forward().whenComplete(nextQuestionNormale);
     } else {
       // Get package provide us simple way to naviigate another page
-      Get.to(ScoreScreen());
+      Get.to(ScoreScreen(levelCode: 2));
     }
   }
 
-  void nextQuestion2() {
-    if (_questionNumber.value != _questions_difficile.length) {
+  void nextQuestionDifficile() {
+    if (_questionNumber.value != _questionsDifficile.length) {
       _isAnswered = false;
       _pageController.nextPage(
           duration: Duration(milliseconds: 250), curve: Curves.ease);
@@ -200,10 +185,10 @@ class QuestionController extends GetxController
 
       // Then start it again
       // Once timer is finish go to the next qn
-      _animationController.forward().whenComplete(nextQuestion2);
+      _animationController.forward().whenComplete(nextQuestionDifficile);
     } else {
       // Get package provide us simple way to naviigate another page
-      Get.to(ScoreScreen());
+      Get.to(ScoreScreen(levelCode: 3));
     }
   }
 

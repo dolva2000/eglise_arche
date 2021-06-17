@@ -18,7 +18,7 @@ class _AboutViewState extends State<AboutView> {
       body: Container(
           decoration: new BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage('asset/img/bg2.jpg'), fit: BoxFit.cover)),
+                  image: AssetImage('assets/img/bg2.jpg'), fit: BoxFit.cover)),
           child: ListView(
             padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 30),
             children: [
@@ -95,6 +95,7 @@ class _AboutViewState extends State<AboutView> {
                           Icon(
                             Icons.language,
                             size: 12,
+                            color: Colors.amberAccent,
                           ),
                           SizedBox(
                             width: 10,
@@ -103,7 +104,7 @@ class _AboutViewState extends State<AboutView> {
                             "Mbok'Art Concept",
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                                color: Colors.indigo,
+                                color: Colors.amberAccent,
                                 fontSize: 10,
                                 fontWeight: FontWeight.bold),
                           ),

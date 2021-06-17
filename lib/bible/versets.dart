@@ -22,15 +22,15 @@ class _VersetsScreenState extends State<VersetsScreen> {
   }
 
   void incrementChapter() {
-    if (widget.bibleListItem.chapters.length  > _chapter+1){
+    if (widget.bibleListItem.chapters.length > _chapter + 1) {
       setState(() {
         _chapter++;
       });
     }
   }
 
-  void decrementChapter() {  
-    if (_chapter > 0){
+  void decrementChapter() {
+    if (_chapter > 0) {
       setState(() {
         _chapter--;
       });
@@ -72,7 +72,7 @@ class _VersetsScreenState extends State<VersetsScreen> {
       body: Container(
         decoration: new BoxDecoration(
             image: DecorationImage(
-                image: AssetImage('asset/img/bg2.jpg'), fit: BoxFit.cover)),
+                image: AssetImage('assets/img/bg2.jpg'), fit: BoxFit.cover)),
         child: ListView.builder(
           padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
           itemCount: widget.bibleListItem.chapters[_chapter].length,
@@ -85,15 +85,18 @@ class _VersetsScreenState extends State<VersetsScreen> {
                   child: RichText(
                     text: TextSpan(
                       children: <TextSpan>[
-                        TextSpan(text: (idx + 1).toString() + '. ',  style: TextStyle(
+                        TextSpan(
+                          text: (idx + 1).toString() + '. ',
+                          style: TextStyle(
                             fontWeight: FontWeight.bold,
-                              fontSize: 17,
-                              ),),
+                            fontSize: 17,
+                          ),
+                        ),
                         TextSpan(
                           text: versets,
                           style: TextStyle(
-                            fontStyle: FontStyle.italic,
-                               fontSize: 16,
+                              fontStyle: FontStyle.italic,
+                              fontSize: 16,
                               color: Colors.grey.shade100),
                         ),
                       ],

@@ -55,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen>
           _videosCount = tempVideosList.pageInfo.totalResults;
         });
       } catch (e) {
-        print(e);
+        debugPrint(e);
       }
     }
     setState(() {
@@ -85,7 +85,7 @@ class _HomeScreenState extends State<HomeScreen>
             _nextPageToken = tempVideosList.nextPageToken;
           });
         }
-        print("nextPageToken => $_nextPageToken");
+        debugPrint("nextPageToken => $_nextPageToken");
       }
     }
   }
@@ -109,7 +109,7 @@ class _HomeScreenState extends State<HomeScreen>
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset("asset/img/undraw_online_articles_79ff.png")
+                  Image.asset("assets/img/undraw_online_articles_79ff.png")
                 ],
               ))
           : Container(
@@ -124,7 +124,7 @@ class _HomeScreenState extends State<HomeScreen>
                           }
                           if (notification.metrics.pixels ==
                               notification.metrics.maxScrollExtent) {
-                            print('_loadNextVideos');
+                            debugPrint('_loadNextVideos');
                             //_loadNextVideos();
                             return true;
                           }
@@ -174,7 +174,7 @@ class _HomeScreenState extends State<HomeScreen>
                                         return Container(
                                           width: 150,
                                           child:
-                                              Image.asset("asset/img/hhh.png"),
+                                              Image.asset("assets/img/hhh.png"),
                                         );
                                       },
                                     ),

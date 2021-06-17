@@ -38,6 +38,10 @@ class _SettingsPageState extends State<SettingsPage> {
         title: Text("Paramétres"),
       ),
       body: Container(
+        decoration: new BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage('assets/img/bg2.jpg'), fit: BoxFit.cover),
+        ),
         padding: EdgeInsets.only(left: 16, top: 25, right: 16),
         child: ListView(
           children: [
@@ -45,27 +49,34 @@ class _SettingsPageState extends State<SettingsPage> {
               children: [
                 Icon(
                   Icons.share,
-                  color: Colors.indigo,
+                  color: Colors.white,
                 ),
                 SizedBox(
                   width: 8,
                 ),
                 Text(
                   "Evaluer et Partager",
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
                 ),
               ],
             ),
             Divider(
               height: 15,
               thickness: 2,
+              color: Colors.white60,
             ),
             SizedBox(
               height: 10,
             ),
             buildAccountOptionRow(context, "Evaluer l'application", "", ""),
             buildAccountOptionRow(context, "Partager l'application", "", ""),
-            Divider(),
+            Divider(
+              color: Colors.white60,
+            ),
             SizedBox(
               height: 40,
             ),
@@ -73,32 +84,37 @@ class _SettingsPageState extends State<SettingsPage> {
               children: [
                 Icon(
                   Icons.security,
-                  color: Colors.indigo,
+                  color: Colors.white,
                 ),
                 SizedBox(
                   width: 8,
                 ),
                 Text(
                   "Aide et Security ",
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
                 ),
               ],
             ),
             Divider(
               height: 15,
               thickness: 2,
+              color: Colors.white60,
             ),
             SizedBox(
               height: 10,
             ),
-            buildAccountOptionRow(context, "politique de confidentialité",
+            buildAccountOptionRow(context, "Politique de Confidentialité",
                 "ne pas encore disponible", ""),
-            buildAccountOptionRow(context, "condition d'utilisation",
+            buildAccountOptionRow(context, "Condition d'utilisation",
                 "ne pas encore disponible", ""),
             buildAccountOptionRow(
                 context, "Aide", "Veuillez contatez les administrateur", ""),
-            buildAccountOptionRow(context, "Infos de l'application",
-                "la version de l'application", " est de 1.0.1"),
+            buildAccountOptionRow(
+                context, "Infos de l'application", "version", "1.0.1"),
             SizedBox(
               height: 50,
             ),
@@ -129,7 +145,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       onPressed: () {
                         Navigator.of(context).pop();
                       },
-                      child: Text("Close")),
+                      child: Text("Fermer")),
                 ],
               );
             });
@@ -144,7 +160,7 @@ class _SettingsPageState extends State<SettingsPage> {
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w500,
-                color: Colors.grey[600],
+                color: Colors.white70,
               ),
             ),
             Icon(

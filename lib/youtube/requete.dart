@@ -1,4 +1,5 @@
 import 'dart:convert' as convert;
+import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
@@ -25,9 +26,9 @@ Future requete() async {
 
   if (response.statusCode == 200) {
     var itemCount = jsonDecode(response.body);
-    print('Number of books about http: $itemCount');
+    debugPrint('Number of books about http: $itemCount');
   } else {
-    print('Request failed with status: ${response.statusCode}.');
+    debugPrint('Request failed with status: ${response.statusCode}.');
   }
 }
 
@@ -47,8 +48,8 @@ Future requete() async {
 //   if (response.statusCode == 200) {
 //     var jsonResponse = convert.jsonDecode(response.body);
 //     var itemCount = jsonResponse['totalItems'];
-//     print('Number of books about http: $jsonResponse.');
+//     debugPrint('Number of books about http: $jsonResponse.');
 //   } else {
-//     print('Request failed with status: ${response.statusCode}.');
+//     debugPrint('Request failed with status: ${response.statusCode}.');
 //   }
 // }

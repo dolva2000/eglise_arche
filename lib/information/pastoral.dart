@@ -15,68 +15,29 @@ class _PastoraleState extends State<Pastorale> {
         elevation: 11,
       ),
       body: Container(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            SizedBox(
-              height: 12,
-            ),
-            InkWell(
+        decoration: new BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage('assets/img/bg2.jpg'), fit: BoxFit.cover),
+        ),
+        child: Container(
+          padding: EdgeInsets.all(15),
+          child: ListView(
+            children: [
+              InkWell(
                 onTap: () {},
                 child: Center(
-                    child: Column(
-                  children: [
-                    Container(
-                      height: 250,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                        boxShadow: [
-                          BoxShadow(
-                              color: Colors.black.withOpacity(0.3),
-                              offset: Offset(1.0, 3.0),
-                              blurRadius: 19.0)
-                        ],
+                  child: Column(
+                    children: [
+                      Container(
+                        width: double.infinity,
+                        child: Image.asset("assets/img/pastor_and_wife.jpg"),
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(1.0),
-                        child: ListView(
-                          children: [
-                            Row(
-                              children: [
-                                Container(
-                                  height: 200,
-                                  child: Image.asset("asset/img/pasteur.png"),
-                                ),
-                                Column(
-                                  children: [
-                                    Text(
-                                      "Pasteur Bwango ",
-                                      style: TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold,
-                                          color: Color(0xFF21BFBD)),
-                                    ),
-                                    Text(
-                                      "Pasteur titulare ",
-                                      style: TextStyle(
-                                          fontSize: 17,
-                                          fontWeight: FontWeight.normal,
-                                          color: Colors.black),
-                                    )
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ))),
-          ],
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

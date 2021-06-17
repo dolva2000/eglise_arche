@@ -19,7 +19,7 @@ class _ContactState extends State<Contact> {
         child: Container(
           decoration: new BoxDecoration(
               image: new DecorationImage(
-                  image: new AssetImage("asset/img/bg.jpg"),
+                  image: new AssetImage("assets/img/bg.jpg"),
                   fit: BoxFit.cover,
                   colorFilter:
                       ColorFilter.mode(Colors.black54, BlendMode.luminosity))),

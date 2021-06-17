@@ -33,7 +33,7 @@ class _InformationState extends State<Information> {
                         decoration: new BoxDecoration(
                           color: Color.fromRGBO(240, 240, 253, 1),
                           image: DecorationImage(
-                            image: AssetImage('asset/img/pastor.jpg'),
+                            image: AssetImage('assets/img/pastor.jpg'),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -90,7 +90,7 @@ class _InformationState extends State<Information> {
                         decoration: new BoxDecoration(
                           color: Color.fromRGBO(240, 240, 253, 1),
                           image: DecorationImage(
-                            image: AssetImage('asset/img/church-vision.jpg'),
+                            image: AssetImage('assets/img/church-vision.jpg'),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -114,7 +114,7 @@ class _InformationState extends State<Information> {
                                 Center(
                                   child: Container(
                                     height: 60,
-                                    child: Image.asset("asset/img/hhh.png"),
+                                    child: Image.asset("assets/img/hhh.png"),
                                   ),
                                 ),
                                 Center(
@@ -143,7 +143,7 @@ class _InformationState extends State<Information> {
                         decoration: new BoxDecoration(
                           color: Color.fromRGBO(240, 240, 253, 1),
                           image: DecorationImage(
-                            image: AssetImage('asset/img/find-us.jpg'),
+                            image: AssetImage('assets/img/find-us.jpg'),
                             fit: BoxFit.cover,
                           ),
                         ),

@@ -32,10 +32,10 @@ class Services {
       parameters,
     );
     Response response = await http.get(uri, headers: headers);
-    // print(response.body);
+    // debugPrint(response.body);
     // VideosList videosList = videosListFromJson(response.body);
     //
-    print(response.statusCode);
+
     return response.statusCode < 400 ? response.body : '';
   }
 }

@@ -6,10 +6,11 @@ import 'package:flutter_svg/svg.dart';
 import '../../../constants.dart';
 
 class ProgressBar extends StatelessWidget {
- ProgressBar({
-    Key key,this.tmps,
+  ProgressBar({
+    Key key,
+    this.tmps,
   }) : super(key: key);
-   final tmps;
+  final tmps;
 
   @override
   Widget build(BuildContext context) {
@@ -44,8 +45,9 @@ class ProgressBar extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("${(controller.animation.value * tmps).round()} sec"),
-                      SvgPicture.asset("asset/icon/clock.svg"),
+                      Text(
+                          "${(controller.animation.value * tmps).round()} sec"),
+                      SvgPicture.asset("assets/icon/clock.svg"),
                     ],
                   ),
                 ),

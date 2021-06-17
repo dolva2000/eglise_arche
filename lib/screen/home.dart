@@ -35,7 +35,7 @@ class _HomeState extends State<Home> {
         drawer: Menu(),
         appBar: AppBar(
           //backgroundColor: Colors.indigo,
-          foregroundColor:Colors.white10, 
+          foregroundColor: Colors.white10,
           shadowColor: Colors.white10,
           elevation: 2,
           centerTitle: true,
@@ -43,15 +43,6 @@ class _HomeState extends State<Home> {
             "Arche Makala",
             style: TextStyle(fontSize: 22, color: Colors.white),
           ),
-          actions: [
-            Padding(
-              padding: const EdgeInsets.only(right: 20),
-              child: CircleAvatar(
-                radius: 20,
-                backgroundImage: AssetImage("asset/img/hhh.png"),
-              ),
-            ),
-          ],
         ),
         body: Stack(
           children: <Widget>[
@@ -59,7 +50,7 @@ class _HomeState extends State<Home> {
               decoration: new BoxDecoration(
                   color: Color.fromRGBO(240, 240, 253, 1),
                   image: DecorationImage(
-                      image: AssetImage('asset/img/bg.jpg'),
+                      image: AssetImage('assets/img/bg.jpg'),
                       fit: BoxFit.cover)),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -203,14 +194,14 @@ class _HomeState extends State<Home> {
                               children: [
                                 Icon(
                                   Icons.event_note_rounded,
-                                  color: Colors.green,
+                                  color: Colors.indigo,
                                   size: 70.0,
                                 ),
                                 Text(
                                   "Programmes",
                                   style: TextStyle(
                                     fontSize: 15.0,
-                                    color: Colors.green,
+                                    color: Colors.indigo,
                                   ),
                                 )
                               ],
@@ -234,20 +225,20 @@ class _HomeState extends State<Home> {
                                   ));
                             },
                             splashColor: Colors.green,
-                            child: Center(                 
+                            child: Center(
                                 child: Column(
                               mainAxisSize: MainAxisSize.min,
                               children: [
                                 Icon(
-                                  Icons.gamepad,
-                                  color: Colors.cyan,
+                                  Icons.question_answer_rounded,
+                                  color: Color(0xff123456),
                                   size: 70.0,
                                 ),
                                 Text(
-                                  "QUIZ",
+                                  "Quiz",
                                   style: TextStyle(
                                     fontSize: 15.0,
-                                    color: Colors.cyan,
+                                    color: Color(0xff123456),
                                   ),
                                 )
                               ],
@@ -277,14 +268,14 @@ class _HomeState extends State<Home> {
                                 children: [
                                   Icon(
                                     Icons.info_rounded,
-                                    color: Colors.indigo,
+                                    color: Colors.green,
                                     size: 70.0,
                                   ),
                                   Text(
                                     "Informations",
                                     style: TextStyle(
                                       fontSize: 15.0,
-                                      color: Colors.indigo,
+                                      color: Colors.green,
                                     ),
                                   )
                                 ],

@@ -5,67 +5,40 @@ import 'package:apparche/quiz/controllers/question_controller.dart';
 import 'components/body.dart';
 
 class QuizScreen extends StatelessWidget {
- 
-  @override
-  Widget build(BuildContext context) {
-    QuestionController _controller = Get.put(QuestionController());
-    return  Scaffold(
-      extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        // Fluttter show the back button automatically
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        actions: [
-          FlatButton(onPressed: _controller.nextQuestion, child: Text("Skip")),
-        ],
-      ),
-    
-      body: Body()
-  
-    );
-  }
-}
+  QuizScreen({this.levelCode});
+  final int levelCode;
 
-class QuizScreenNormal extends StatelessWidget {
-  
   @override
   Widget build(BuildContext context) {
     QuestionController _controller = Get.put(QuestionController());
-    return  Scaffold(
-      extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        // Fluttter show the back button automatically
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        actions: [
-          FlatButton(onPressed: _controller.nextQuestion1, child: Text("Skip")),
-        ],
-      ),
-    
-      body: Normal()
-  
-    );
-  }
-}
 
-class QuizScreenfacile extends StatelessWidget {
-  
-  @override
-  Widget build(BuildContext context) {
-    QuestionController _controller = Get.put(QuestionController());
-    return  Scaffold(
+    void nextQuestion() {
+      switch (levelCode) {
+        case 1:
+          _controller.nextQuestionFacile();
+          break;
+        case 2:
+          _controller.nextQuestionNormale();
+          break;
+        case 3:
+          _controller.nextQuestionDifficile();
+          break;
+        default:
+          break;
+      }
+    }
+
+    return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         // Fluttter show the back button automatically
         backgroundColor: Colors.transparent,
         elevation: 0,
         actions: [
-          FlatButton(onPressed: _controller.nextQuestion2, child: Text("Skip")),
+          TextButton(onPressed: nextQuestion, child: Text("Passer")),
         ],
       ),
-    
-      body: Difficile()
-  
+      body: Body(levelCode: levelCode),
     );
   }
 }

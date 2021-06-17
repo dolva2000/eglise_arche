@@ -4,11 +4,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 class Programme extends StatefulWidget {
-  String payload;
-
-  Programme({
-    @required this.payload,
-  });
   @override
   _ProgrammeState createState() => _ProgrammeState();
 }
@@ -36,9 +31,9 @@ class _ProgrammeState extends State<Programme> {
 
   CarouselOptions carouselSlider;
   List imglist = [
-    "asset/img/mardi.jpg",
-    "asset/img/jeudi.jpg",
-    "asset/img/dimanche.jpg"
+    "assets/img/mardi.jpg",
+    "assets/img/jeudi.jpg",
+    "assets/img/dimanche.jpg"
   ];
 
   Widget build(BuildContext context) {
@@ -51,7 +46,7 @@ class _ProgrammeState extends State<Programme> {
         decoration: new BoxDecoration(
             color: Color.fromRGBO(240, 240, 253, 1),
             image: DecorationImage(
-                image: AssetImage('asset/img/bg2.jpg'), fit: BoxFit.cover)),
+                image: AssetImage('assets/img/bg2.jpg'), fit: BoxFit.cover)),
         child: ListView.builder(
             itemCount: list.length + 1,
             itemBuilder: (context, index) {
